@@ -29,3 +29,9 @@ class Activity(BaseModel):
   description = models.CharField(max_length=255)
   started = models.DateField()
   finished = models.DateField()
+
+  def parent_description(self):
+    if self.parent is None:
+      return None
+    return self.parent.description
+  parent_description.short_description = 'Parent Description'
