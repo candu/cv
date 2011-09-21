@@ -1,1 +1,1 @@
-alert('yay!');
+console.log('running JS')

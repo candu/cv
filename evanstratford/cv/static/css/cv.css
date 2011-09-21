@@ -1,4 +1,45 @@
 html, body {
-  padding: 0;
+  font-family: sans-serif;
   margin: 0;
+  padding: 0;
+}
+
+.UITagGroup {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  float: left;
+  margin: 2px;
+  padding: 2px;
+}
+
+.UITagGroup:hover {
+  background-color: #ddd;
+}
+
+.UITag:hover {
+  background-color: #8bf;
+  border: 1px solid #7af;
+}
+
+.UITagGroupName {
+  font-size: 10px;
+  color: #666;
+}
+
+.UITag {
+  background-color: #ccc;
+  border: 1px solid #bbb;
+  display: inline-block;
+  margin: 2px;
+  padding: 2px;
+}
+
+.UITag > a {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.UITag > a:hover {
+  color: #36f;
 }

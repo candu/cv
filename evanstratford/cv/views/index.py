@@ -1,5 +1,4 @@
 from django.http import HttpResponse
-from xhpy.pylib import *
 
 from cv.models import Tag
 from cv.ui.page import :ui:page
@@ -10,5 +9,5 @@ def index(request):
   page = \
   <ui:page title="Evan Stratford :: CV">
     <ui:tags tags={tags} />
-  <ui:page>
+  </ui:page>
   return HttpResponse(page)
