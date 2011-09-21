@@ -1,8 +1,14 @@
 from django.http import HttpResponse
 from xhpy.pylib import *
+
+from cv.models import Tag
 from cv.ui.page import :ui:page
+from cv.ui.tags import :ui:tags
 
 def index(request):
-  content = <div class="baz"><ul><li>foo</li></ul></div>
-  page = <ui:page title="Evan Stratford :: CV">{content}</ui:page>
+  tags = Tag.objects.all()
+  page = \
+  <ui:page title="Evan Stratford :: CV">
+    <ui:tags tags={tags} />
+  <ui:page>
   return HttpResponse(page)

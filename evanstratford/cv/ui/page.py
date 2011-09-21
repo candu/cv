@@ -1,4 +1,4 @@
-from settings import STATIC_URL
+from django.conf import settings
 from xhpy.pylib import *
 
 class :ui:page(:x:element):
@@ -8,9 +8,9 @@ class :ui:page(:x:element):
     head = \
     <head>
       <title>{title}</title>
-      <script src={STATIC_URL + 'js/mootools.js'}></script>
-      <script src={STATIC_URL + 'js/cv.js'}></script>
-      <link href={STATIC_URL + 'css/cv.css'} rel="stylesheet" type="text/css" />
+      <script src={settings.STATIC_URL + 'js/mootools.js'}></script>
+      <script src={settings.STATIC_URL + 'js/cv.js'}></script>
+      <link href={settings.STATIC_URL + 'css/cv.css'} rel="stylesheet" type="text/css" />
     </head>
     body = <body/>
     for child in self.getChildren():
