@@ -7,15 +7,16 @@ html, body {
 
 #container {
   min-width: 800px;
+  position: relative;
 }
 
 .UITagGroup {
   background-color: #eee;
   border: 1px solid #ccc;
   cursor: pointer;
-  float: left;
   margin: 1px;
   padding: 1px;
+  width: 120px;
 }
 
 .UITagGroup:hover {
@@ -47,8 +48,18 @@ html, body {
   color: #491;
 }
 
-.UITag:active {
-  background-color: #8bf;
-  border: 1px solid #7af;
-  color: #36f;
+.UISidebar {
+  float: left;
+  position: fixed;
+  top: 0;
+  width: 150px;
+}
+
+.UIContentContainer {
+  margin-left: 150px;
+}
+
+.UIContent {
+  width: 100%;
+  float: right;
 }
