@@ -5,7 +5,7 @@ class :ui:tag(:x:element):
   attribute tuple tag-data
   def render(self):
     path, description = self.getAttribute('tag-data')
-    return <div class="UITag"><a href="#" title={description}>{path}</a></div>
+    return <a class="UITag enabled" href="#" title={description}>{path}</a>
 
 class :ui:tag-group(:x:element):
   attribute string group-name, list tag-data
@@ -16,17 +16,20 @@ class :ui:tag-group(:x:element):
     <div class="UITagGroup">
       <div class="UITagGroupName">{group_name}</div>
     </div>
+    tags = []
     groups = {}
     for path, description in self.getAttribute('tag-data'):
       path_parts = path.split('/')
       if len(path_parts) == 1:
-        group_list.appendChild(<ui:tag tag-data={(path, description)} />)
+        tags.append((path, description))
         continue
       group = path_parts[0]
       subpath = '/'.join(path_parts[1:])
       group_tag_data = groups.setdefault(group, [])
       group_tag_data.append((subpath, description))
-    for group, group_tag_data in groups.iteritems():
+    for path, description in sorted(tags):
+      group_list.appendChild(<ui:tag tag-data={(path, description)} />)
+    for group, group_tag_data in sorted(groups.iteritems()):
       group_list.appendChild(
           <ui:tag-group group-name={group} tag-data={group_tag_data} />)
     return group_list
