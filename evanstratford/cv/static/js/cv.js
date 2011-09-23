@@ -7,12 +7,4 @@ window.addEvent('domready', function() {
     event.stop();
     event.target.toggleClass('enabled');
   });
-  $$('.UITagGroup').addEvent('click', function(event) {
-    event.stop();
-    var group = event.target;
-    if (group.hasClass('UITagGroupName')) {
-      group = group.getParent();
-    }
-    group.getElements('.UITag').toggleClass('enabled');
-  });
 });
