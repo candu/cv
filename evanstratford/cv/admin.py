@@ -7,13 +7,12 @@ class TagAdmin(admin.ModelAdmin):
 
 class ActivityAdmin(admin.ModelAdmin):
   fieldsets = [
-    (None, {'fields' : ['description']}),
+    (None, {'fields' : ['title', 'blurb', 'description']}),
     ('Duration', {'fields' : ['started', 'finished']}),
-    ('Associations', {'fields' : ['parent', 'tags']}),
   ]
-  list_display = ('description', 'parent_description', 'started', 'finished')
+  list_display = ('title', 'blurb', 'started', 'finished')
   list_filter = ['started', 'finished']
-  search_fields = ['description']
+  search_fields = ['title', 'blurb', 'description']
 
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Activity, ActivityAdmin)

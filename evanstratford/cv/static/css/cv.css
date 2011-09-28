@@ -13,7 +13,6 @@ html, body {
 .UITagGroup {
   background-color: #eee;
   border: 1px solid #ccc;
-  cursor: pointer;
   margin: 1px;
   padding: 1px;
   width: 120px;
@@ -46,6 +45,53 @@ html, body {
   background-color: #af7;
   border: 1px solid #8f5;
   color: #491;
+}
+
+.UITimelineHeader {
+  background-color: #eee;
+  border-bottom: 1px solid #ddd;
+  border-bottom-left-radius: 4px;
+  border-left: 1px solid #ddd;
+  margin-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 8px;
+}
+
+.UIHorizAxis {
+  color: #666;
+  font-size: 10pt;
+  font-weight: 500;
+}
+
+.UIHorizAxisLeft {
+  display: inline-block;
+  width: 50%;
+}
+
+.UIHorizAxisRight {
+  display: inline-block;
+  text-align: right;
+  width: 50%;
+}
+
+.UIHorizAxisLeft > div {
+  padding: 2px;
+  margin: 2px;
+}
+
+.UIActivity {
+  border: 1px solid #ddd;
+  color: #666;
+  font-size: 11px;
+  padding: 2px;
+  width: 150px;
+}
+
+.UIActivityTitle {
+  color: #333;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
 }
 
 .UISidebar {
