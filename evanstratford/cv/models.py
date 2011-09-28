@@ -24,7 +24,7 @@ class Tag(BaseModel):
   description = models.CharField(max_length=255)
 
   def baseName(self):
-    return tag.path.split('/')[-1]
+    return self.path.split('/')[-1]
 
 class TagSimilarity(BaseModel):
   """

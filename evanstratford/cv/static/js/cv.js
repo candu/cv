@@ -1,6 +1,5 @@
-function toggle_tag(tag) {
-
-}
+var TimelineController = {
+};
 
 window.addEvent('domready', function() {
   $$('.UITag').addEvent('click', function(event) {

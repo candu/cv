@@ -1,14 +1,13 @@
 from xhpy.pylib import *
+
 from cv.lib.text_tagger import TextTagger
 from cv.models import Activity, Tag
 from cv.ui.tags import :ui:tag
 
-import random
-import re
+import datetime
 
 class :ui:tagged-text(:x:element):
   children pcdata
-  TAG_REGEX = re.compile(r'(\[@tag:[^\]]*\])')
   def render(self):
     text = self.getFirstChild()
     tagged_text = <div class="UITaggedText" />
@@ -21,11 +20,19 @@ class :ui:tagged-text(:x:element):
     return tagged_text
 
 class :ui:activity(:x:element):
-  attribute Activity activity
+  PIXELS_PER_DAY = 2
+  attribute Activity activity,
+            datetime.date last-activity-time
   def render(self):
     activity = self.getAttribute('activity')
+    last_activity_time = self.getAttribute('last-activity-time')
+    time_delta = last_activity_time - activity.finished
+    time_duration = activity.finished - activity.started
+    top = time_delta.days * self.PIXELS_PER_DAY
+    min_height = time_duration.days * self.PIXELS_PER_DAY
+
     return \
-    <div class="UIActivity">
+        <div class="UIActivity" id={'activity-{0}'.format(activity.id)} style={'top: {0}px; min-height: {1}px'.format(top + 30, min_height)}>
       <div class="UIActivityTitle">
         {activity.title}
       </div>
@@ -47,7 +54,11 @@ class :ui:timeline(:x:element):
         </div>
       </div>
     </div>
-    for activity in self.getAttribute('activities'):
-      timeline.appendChild(<ui:activity activity={activity} />)
+    activities = self.getAttribute('activities')
+    last_activity_time = max(a.finished for a in activities)
+    for activity in activities:
+      timeline.appendChild(
+          <ui:activity activity={activity}
+                       last-activity-time={last_activity_time}/>)
     return timeline
 
