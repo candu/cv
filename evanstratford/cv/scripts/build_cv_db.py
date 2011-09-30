@@ -47,13 +47,16 @@ Usage:
 """
 
 class ActivityParser(object):
-  pass
+  def parse(self, f):
+    return [], None
 
 class EraParser(object):
-  pass
+  def parse(self, f):
+    return [], None
 
 class EventParser(object):
-  pass
+  def parse(self, f):
+    return [], None
 
 class DatabaseBuilder(object):
   def __init__(self, content_dir, subdir_map):
@@ -64,8 +67,23 @@ class DatabaseBuilder(object):
         print 'eek: {0}'.format(content_subdir)
       os.path.walk(content_subdir, self._visit, parser)
 
+      self._buildSimilarityMap()
+
   def _visit(self, parser, dirname, names):
     print dirname, names
+    for name in names:
+      filename = os.path.join(dirname, name)
+      with file(filename) as f:
+        autotags, instance = parser.parse(f)
+        #for tag in autotags:
+        #  tag.save()
+        #instance.save()
+
+  def _buildSimilarityMap(self):
+    # TODO: get all rows from cv_activitys_tags
+    # TODO: crunch for EMIM
+    # TODO: push back to DB
+    pass
 
 if __name__ == '__main__':
   def usage(msg):

@@ -1,0 +1,6 @@
+Software Engineering Intern
+with [@tag:/orgs/facebook]
+
+- Developed a real-time spam detection system capable of handling millions of user messages per second
+- Tested and deployed an internal Thrift service for QR code generation, using my own port of rQRCode to C++
+- Used gprof to help profile and optimize a generalized spam classification framework, reducing CPU load by 15%

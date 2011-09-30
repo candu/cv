@@ -1,0 +1,10 @@
+Bike to the Earth
+
+- Biked 12 178 km from Copenhagen to Istanbul via Portugal over six months
+- Wrote bi-daily blog posts chronicling the journey
+- Designed, built, and deployed the Bike to the Earth website using CouchDB, Pylons, and jQuery
+- Wrote proof-of-concept functionality to create daily maps from GPS readings using gpsd, Python, and Google Static Maps API
+- Wrote proof-of-concept functionality to compile videos from frames taken using an inexpensive handlebar-mounted webcam using ffmpeg
+- Tested these out on training rides around Oakville
+
+When we started the trip, though, we quickly found that our daily ride exceeded the battery life of the laptop. For this reason, these implementations remained proof-of-concept; we'll refine this concept with better hardware next time!

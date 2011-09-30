@@ -1,0 +1,10 @@
+Software Engineer
+with [@tag:/orgs/facebook]
+
+- Built search for groups content end-to-end, marking the first use of our in-house graph search system for fulltext search
+- Responsible for everything from the indexing pipeline to the realtime update infrastructure to the frontend implementation of design mocks
+- Maintained search for groups content, managing a weekly index push process, building dashboards to monitor for operational issues, and working with the team to resolve any such issues
+- Improved search quality by analyzing query logs, resolving issues with CJK character sets, and indexing text samples associated with media posts
+- Developed a system to monitor and throttle resource usage spikes across thousands of servers
+- Automated the process for building our 50 TB main graph search index from Hive tables
+- Optimized the site-wide JavaScript-based CSS package loading framework, minimizing expensive setInterval() calls

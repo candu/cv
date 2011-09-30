@@ -1,0 +1,5 @@
+Quality Assurance Co-op
+with [@tag:/orgs/slipstream]
+
+- Worked with the QA team to develop an XPCOM extension bridge between Mozilla Firefox and IBM Rational Robot
+- Achieved 70% automation of manual testing procedures by increasing reliability of existing tests and using Windows API hooks to build tests with cross-machine reproducibility

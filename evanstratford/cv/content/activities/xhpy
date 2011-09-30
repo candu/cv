@@ -1,0 +1,7 @@
+XHPy
+
+- Ported the open-source XHP project to Python over the course of a month
+
+See the XHP github page for more details on that; in a nutshell, it extends PHP syntax to allow XML document fragments as literals.
+
+XHPy installs a PEP 302-style import hook that uses Pratt top-down operator precedence to define streaming parser-generators; these parser-generators accept and output tokens as defined in Python's tokenize module. When a module containing XHPy syntax is imported, this import hook acts as a preprocessor, outputting compiled Python bytecode to the appropriate .pyc file. Since this .pyc file is only generated when the source file changes, we incur the performance hit from preprocessing exactly once.

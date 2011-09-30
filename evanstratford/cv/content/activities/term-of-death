@@ -1,0 +1,6 @@
+Term of Death
+with [@tag:/orgs/uw]
+
+- Worked with Ondrej Ruttkay to build a real-time message-passing-based operating system for the ARM (which chip?), along with an application using this OS to control model trains
+- Wrote a raytracer with randomized supersampling, Phong lighting, and support for implicit surfaces
+- Wrote a procedural content generation engine to render interactive natural landscapes with fractal trees, Catmull-Clark subdivision-based rocks, and multiple-frequency Perlin noise textures

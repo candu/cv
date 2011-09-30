@@ -1,0 +1,6 @@
+CV
+
+- Designed and built this online CV using Django, XHPy, and mootools
+- Implemented a tag similarity algorithm based upon the Expected Mutual Information Measure
+- Used this algorithm to build a dynamic interface that moves blocks horizontally according to their relevance to user-selected tag filters
+- Added views optimized for print and mobile media, as well as for browsers lacking JavaScript support

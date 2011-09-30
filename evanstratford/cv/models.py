@@ -55,7 +55,7 @@ class Event(BaseModel):
   """
   tags = models.ManyToManyField(Tag)
   title = models.CharField(max_length=255)
-  blurb = models.CharField(max_length=255)
+  description = models.TextField()
   happened_at = models.DateField()
 
 class Activity(BaseModel):
@@ -66,7 +66,6 @@ class Activity(BaseModel):
   """
   tags = models.ManyToManyField(Tag)
   title = models.CharField(max_length=255)
-  blurb = models.CharField(max_length=255)
   description = models.TextField()
   started = models.DateField()
   finished = models.DateField()

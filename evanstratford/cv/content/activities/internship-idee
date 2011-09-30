@@ -1,0 +1,9 @@
+Visual Search Algorithm Developer
+with [@tag:/orgs/idee]
+
+- Developed an application in C++ to compare the performance of high-dimensional Approximate Nearest Neighbor algorithms
+- Helped build and release Idee Labs, a Pylons-based web application featuring visual search across millions of images
+- Learned Python in a day, then used it to build database migration scripts
+- Used Python and Amazon APIs to build a distributed parallel tool for downloading millions of book covers
+- Implemented requested fixes and improvements for the PHP-based internal operator interface
+- Researched methods for matching images against user sketches, implementing a prototype algorithm based on curve extraction and normalized Hausdorff distance

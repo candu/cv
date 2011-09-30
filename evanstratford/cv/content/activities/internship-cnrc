@@ -1,0 +1,7 @@
+Research Intern
+with [@tag:/orgs/cnrc]
+
+- Designed and implemented a module to cluster similar phrases, then scaled it to handle the 2008 GALE Chinese-English corpus
+- Implemented bilingual sentence segmentation within PORTAGE, reducing HMM alignment model training time by 80-90%
+- Wrote a template-based binary I/O library in C++, improving the serialization of intermediate pipeline stages
+- Co-authored the paper "Phrase Clustering blah blah blah", which was accepted for submission at COLING 2010
