@@ -23,7 +23,6 @@ class TextTagger(object):
         tagged_parts.append(tag)
       else:
         tagged_parts.append(part)
-      print part
     return tagged_parts
 
   @classmethod

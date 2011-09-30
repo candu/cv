@@ -12,6 +12,7 @@ class ActivityAdmin(admin.ModelAdmin):
   ]
   list_display = ('title', 'blurb', 'started', 'finished')
   search_fields = ['title', 'blurb', 'description']
+  ordering = ['-started', '-finished']
 
 class EventAdmin(admin.ModelAdmin):
   fieldsets = [
@@ -20,6 +21,7 @@ class EventAdmin(admin.ModelAdmin):
   ]
   list_display = ('title', 'blurb', 'happened_at')
   search_fields = ['title', 'blurb']
+  ordering = ['-happened_at']
 
 class EraAdmin(admin.ModelAdmin):
   fieldsets = [
@@ -28,6 +30,7 @@ class EraAdmin(admin.ModelAdmin):
   ]
   list_display = ('title', 'started', 'finished')
   search_fields = ['title', 'description']
+  ordering = ['-started', '-finished']
 
 admin.site.register(Activity, ActivityAdmin)
 admin.site.register(Era, EraAdmin)

@@ -4,7 +4,6 @@ from django.utils import simplejson
 from cv.models import Tag, TagSimilarity
 
 def json_response(request, json):
-  print 'foo'
   callback = request.GET.get('callback')
   if callback is None:
     return HttpResponse(json, content_type='application/json')
