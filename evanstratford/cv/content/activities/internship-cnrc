@@ -1,5 +1,6 @@
 Research Intern
-with [@tag:/orgs/cnrc]
+Jan 01, 2009 to Apr 30, 2009
+/orgs/cnrc, /c++, /c++/stl, /c++/openmp, /bash
 
 - Designed and implemented a module to cluster similar phrases, then scaled it to handle the 2008 GALE Chinese-English corpus
 - Implemented bilingual sentence segmentation within PORTAGE, reducing HMM alignment model training time by 80-90%

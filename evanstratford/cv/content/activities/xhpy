@@ -1,6 +1,9 @@
 XHPy
+Dec 22, 2010 to Feb 01, 2011
+/python, /python/xhpy
 
 - Ported the open-source XHP project to Python over the course of a month
+- Released this port via github and PyPI
 
 See the XHP github page for more details on that; in a nutshell, it extends PHP syntax to allow XML document fragments as literals.
 

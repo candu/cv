@@ -1,4 +1,6 @@
 CBC Radio 3 Scraper/Downloader
+Mar 01, 2009
+/python, /music
 
 - Reverse-engineered the online player at CBC Radio 3 New Music Canada to scrape URLs to MP3s
 - Built Python scripts for listing and downloading filtered sets of MP3s, then used them to download over 2000 songs in the Funk and Electro genres

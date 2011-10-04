@@ -1,5 +1,6 @@
 Term of Death
-with [@tag:/orgs/uw]
+May 01, 2009 to Aug 30, 2009
+/orgs/uw, /places/waterloo, /c++, /c, /asm, /math
 
 - Worked with Ondrej Ruttkay to build a real-time message-passing-based operating system for the ARM (which chip?), along with an application using this OS to control model trains
 - Wrote a raytracer with randomized supersampling, Phong lighting, and support for implicit surfaces
