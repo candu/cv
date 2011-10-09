@@ -9,6 +9,27 @@ class BaseModel(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   last_modified_at = models.DateTimeField(auto_now=True, auto_now_add=True)
 
+  @classmethod
+  def get_or_none(cls, *args, **kwargs):
+    """
+    Unlike get(), returns None if there are duplicate or zero rows for
+    the given filter. For instance:
+    """
+    try:
+      return cls.objects.get(*args, **kwargs)
+    except (cls.DoesNotExist, cls.MultipleObjectsReturned):
+      return None
+
+  @classmethod
+  def get_or_new(cls, *args, **kwargs):
+    """
+    Unlike get(), returns a new instance if there are zero rows.
+    """
+    try:
+      return cls.objects.get(*args, **kwargs)
+    except cls.DoesNotExist:
+      return cls(*args, **kwargs)
+
   def __unicode__(self):
     """
     Provides an easy way to see the state of a BaseModel object via

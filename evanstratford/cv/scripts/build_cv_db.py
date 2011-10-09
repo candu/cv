@@ -43,7 +43,7 @@ import re
 import sys
 
 from cv.lib.text_tagger import TextTagger
-from cv.models import Content, Tag, TagSimilarity
+from cv.models import Content, ContentTag, Tag, TagSimilarity
 
 USAGE_MSG = """\
 Usage:
@@ -77,17 +77,26 @@ class ContentParser(object):
         else:
           finished = datetime_to_date(dateutil.parser.parse(dates[1]))
       paths = [path.strip() for path in f.readline().split(',')]
-      tags = [Tag.objects.get_or_create(path=path) for path in paths]
+      tags = []
+      for path in paths:
+        tag, created = Tag.objects.get_or_create(path=path)
+        tags.append(tag)
       description = markdown.markdown(f.read())
-    content = Content(
-        content_type=content_type,
-        filename=os.path.relpath(filename, content_dir),
-        title=title,
-        description=description,
-        started=started,
-        finished=finished)
+
+    filename_relative = os.path.relpath(filename, content_dir)
+    content = Content.get_or_new(filename=filename_relative)
+    print content
+    content.content_type = content_type
+    content.title = title
+    content.description = description
+    content.started = started
+    content.finished = finished
     content.save()
-    # TODO: deal with tags
+
+    for tag in tags:
+      content_tag = ContentTag.get_or_new(content=content, tag=tag)
+      content_tag.is_autotag = False
+      content_tag.save()
 
 class DatabaseBuilder(object):
   def __init__(self, content_dir, subdir_map):
@@ -97,7 +106,7 @@ class DatabaseBuilder(object):
     for subdir, content_type in subdir_map.iteritems():
       content_subdir = os.path.join(content_dir, subdir)
       if not os.path.exists(content_subdir):
-        print 'eek: {0}'.format(content_subdir)
+        logging.warn('eek: {0}'.format(content_subdir))
       arg = (content_dir, content_type, parser)
       os.path.walk(content_subdir, self._visit, arg)
 
