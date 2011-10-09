@@ -30,8 +30,7 @@ Events
 
 <blurb>
 
-It then populates the database, including autotag extraction and tag similarity
-calculations.
+It then populates the database.
 """
 
 import datetime
@@ -43,7 +42,7 @@ import re
 import sys
 
 from cv.lib.text_tagger import TextTagger
-from cv.models import Content, ContentTag, Tag, TagSimilarity
+from cv.models import Content, ContentTag, Tag
 
 USAGE_MSG = """\
 Usage:
@@ -110,9 +109,6 @@ class DatabaseBuilder(object):
       arg = (content_dir, content_type, parser)
       os.path.walk(content_subdir, self._visit, arg)
 
-    logging.info('building tag similarity mapping...')
-    self._buildSimilarityMap()
-
   def _visit(self, arg, dirname, names):
     content_dir, content_type, parser = arg
     parser = ContentParser()
@@ -121,12 +117,6 @@ class DatabaseBuilder(object):
       logging.info('parsing {0}: content_type == {1}...'.format(
           filename, content_type))
       parser.parse(content_dir, filename, content_type)
-
-  def _buildSimilarityMap(self):
-    # TODO: get all rows from cv_content_tags (or whatever)
-    # TODO: crunch for EMIM
-    # TODO: push back to DB
-    pass
 
 if __name__ == '__main__':
   def usage(msg):
