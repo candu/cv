@@ -1,9 +1,6 @@
-html, body {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 12px;
-  margin: 0;
-  padding: 0;
-}
+/**
+ * Contains all CSS that is specific to the CV UI.
+ */
 
 #container {
   min-width: 800px;
@@ -83,7 +80,7 @@ html, body {
   margin: 2px;
 }
 
-.UIActivity {
+.UIContent {
   border: 1px solid #ddd;
   color: #666;
   font-size: 11px;
@@ -92,7 +89,7 @@ html, body {
   position: absolute;
 }
 
-.UIActivityTitle {
+.UIContentTitle {
   color: #333;
   font-size: 13px;
   font-weight: 500;

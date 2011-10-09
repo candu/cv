@@ -1,38 +1,32 @@
-from cv.models import Activity, Era, Event, Tag
+from cv.models import Content, Tag
+from django import forms
 from django.contrib import admin
 
-class TagAdmin(admin.ModelAdmin):
-  list_display = ('path', 'description')
-  search_fields = ['path']
+class AdminMedia(object):
+  js = (
+    'https://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js',
+    '/static/admin/js/editor.js',
+  )
+  css = {
+    'all': ('/static/admin/css/editor.css',),
+  }
 
-class ActivityAdmin(admin.ModelAdmin):
+class AdminBase(admin.ModelAdmin):
+  Media = AdminMedia
+
+class TagAdmin(AdminBase):
+  list_display = ('path', 'title')
+  search_fields = ['path', 'title']
+  ordering = ['path']
+
+class ContentAdmin(AdminBase):
   fieldsets = [
-    (None, {'fields' : ['title', 'blurb', 'description']}),
+    (None, {'fields' : ['content_type', 'title', 'description']}),
     ('Duration', {'fields' : ['started', 'finished']}),
   ]
-  list_display = ('title', 'blurb', 'started', 'finished')
-  search_fields = ['title', 'blurb', 'description']
-  ordering = ['-started', '-finished']
-
-class EventAdmin(admin.ModelAdmin):
-  fieldsets = [
-    (None, {'fields' : ['title', 'blurb']}),
-    ('Time', {'fields' : ['happened_at']}),
-  ]
-  list_display = ('title', 'blurb', 'happened_at')
-  search_fields = ['title', 'blurb']
-  ordering = ['-happened_at']
-
-class EraAdmin(admin.ModelAdmin):
-  fieldsets = [
-    (None, {'fields' : ['title', 'description']}),
-    ('Duration', {'fields' : ['started', 'finished']}),
-  ]
-  list_display = ('title', 'started', 'finished')
+  list_display = ('content_type', 'filename', 'title', 'started', 'finished')
   search_fields = ['title', 'description']
   ordering = ['-started', '-finished']
 
-admin.site.register(Activity, ActivityAdmin)
-admin.site.register(Era, EraAdmin)
-admin.site.register(Event, EventAdmin)
+admin.site.register(Content, ContentAdmin)
 admin.site.register(Tag, TagAdmin)

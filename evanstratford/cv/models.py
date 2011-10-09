@@ -1,6 +1,11 @@
 from django.db import models
 
 class BaseModel(models.Model):
+  """
+  Provides a default timestamping layer for Django models. This is useful in
+  debugging DB issues, since you can see exactly when each piece of content
+  was created/modified.
+  """
   created_at = models.DateTimeField(auto_now_add=True)
   last_modified_at = models.DateTimeField(auto_now=True, auto_now_add=True)
 
@@ -28,7 +33,7 @@ class Tag(BaseModel):
   whatever tags the user has selected.
   """
   path = models.CharField(max_length=255)
-  description = models.CharField(max_length=255)
+  title = models.CharField(max_length=255)
 
   def baseName(self):
     return self.path.split('/')[-1]
@@ -43,45 +48,35 @@ class TagSimilarity(BaseModel):
   tag2 = models.ForeignKey(Tag, related_name='+')
   similarity = models.FloatField()
 
-class Event(BaseModel):
+class Content(BaseModel):
   """
-  An event is something of interest that took place at a particular point in
-  time. These include awards, specific birthdays, hackathons, etc. The primary
-  reason for separating these from activities is presentational: these are
-  best represented as points with small blurbs, whereas activities are best
-  represented as blocks with longer descriptions.
+  Parent class for content types. Instead of having separate Activity, Event,
+  and Era tables, this uses the contenttype column to decide what everything
+  is.
+  """
+  # Content types
 
-  Events don't have longer descriptions - they only have shorter blurbs.
-  """
-  tags = models.ManyToManyField(Tag)
-  title = models.CharField(max_length=255)
-  description = models.TextField()
-  happened_at = models.DateField()
-
-class Activity(BaseModel):
-  """
-  An activity is something of interest that took place over a longer duration;
-  jobs, volunteer positions, and longer projects fit the bill here. See Event
-  class for the description of how these are different.
-  """
-  tags = models.ManyToManyField(Tag)
+  tags = models.ManyToManyField(Tag, through='ContentTag')
+  ACTIVITY = 'activity'
+  ERA = 'era'
+  EVENT = 'event'
+  CONTENT_TYPE_CHOICES = (
+      (ACTIVITY, ACTIVITY),
+      (ERA, ERA),
+      (EVENT, EVENT),
+  )
+  content_type = models.CharField(max_length=255, choices=CONTENT_TYPE_CHOICES)
+  filename = models.CharField(max_length=255)
   title = models.CharField(max_length=255)
   description = models.TextField()
   started = models.DateField()
-  finished = models.DateField()
+  finished = models.DateField(null=True, blank=True)
 
-class Era(BaseModel):
+class ContentTag(BaseModel):
   """
-  An era is a period in my life that I consider consistent or self-contained in
-  some manner. High school, university, the bike trip, and my full-time work
-  life all fit into this category - they aren't really activities, since they
-  don't highlight achievements or experiences directly, but they are useful
-  groupings.
-
-  Eras don't have tags; they are intended as longer narratives, providing a
-  bit of backstory to the CV. They also lack short blurbs.
+  We use this to track which tags are autotags; we want non-autotags to
+  persist across content updates, whereas autotags should be regenerated.
   """
-  title = models.CharField(max_length=255)
-  description = models.TextField()
-  started = models.DateField()
-  finished = models.DateField()
+  content = models.ForeignKey(Content)
+  tag = models.ForeignKey(Tag)
+  is_autotag = models.BooleanField(default=False)
