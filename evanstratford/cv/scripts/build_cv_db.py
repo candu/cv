@@ -62,7 +62,6 @@ class ContentParser(object):
     with open(filename) as f:
       title = f.readline().strip()
       dates = [date.strip() for date in f.readline().split('to')]
-      print filename, dates
       if len(dates) == 0:
         raise ContentParserException('No dates specified')
       started = datetime_to_date(dateutil.parser.parse(dates[0]))
@@ -84,7 +83,6 @@ class ContentParser(object):
 
     filename_relative = os.path.relpath(filename, content_dir)
     content = Content.get_or_new(filename=filename_relative)
-    print content
     content.content_type = content_type
     content.title = title
     content.description = description
