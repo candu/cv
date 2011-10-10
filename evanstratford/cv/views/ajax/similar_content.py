@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.utils import simplejson
 
-from cv.models import Tag, TagSimilarity
+from cv.models import Tag, TagContentSimilarity
 
 def json_response(request, json):
   callback = request.GET.get('callback')
@@ -10,9 +10,11 @@ def json_response(request, json):
   jsonp = '{0}({1})'.format(callback, json)
   return HttpResponse(jsonp, content_type='application/javascript')
 
-def similar_tags(request, tag_id):
+def similar_content(request, tag_id):
   tag = Tag.objects.get(id=int(tag_id))
-  json = simplejson.dumps({
-    'foo' : 42
-  })
+  similarity = TagContentSimilarity.objects.filter(tag=tag)
+  similarity_map = {}
+  for ts in similarity:
+    similarity_map[ts.content_id] = ts.similarity
+  json = simplejson.dumps(similarity_map)
   return json_response(request, json)

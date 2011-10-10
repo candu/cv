@@ -30,6 +30,13 @@ class BaseModel(models.Model):
     except cls.DoesNotExist:
       return cls(*args, **kwargs)
 
+  @classmethod
+  def get_id_mapping(cls):
+    """
+    Returns a dict { id : instance }, where id is the row ID.
+    """
+    return dict((x.id, x) for x in cls.objects.all())
+
   def __unicode__(self):
     """
     Provides an easy way to see the state of a BaseModel object via
@@ -58,16 +65,6 @@ class Tag(BaseModel):
 
   def baseName(self):
     return self.path.split('/')[-1]
-
-class TagSimilarity(BaseModel):
-  """
-  Models a precomputed similarity metric on tags. In this application, we use
-  the Expected Mutual Information Metric (EMIM), which determines similarity
-  using generalized co-occurrence counts.
-  """
-  tag1 = models.ForeignKey(Tag, related_name='+')
-  tag2 = models.ForeignKey(Tag, related_name='+')
-  similarity = models.FloatField()
 
 class Content(BaseModel):
   """
@@ -101,3 +98,13 @@ class ContentTag(BaseModel):
   content = models.ForeignKey(Content)
   tag = models.ForeignKey(Tag)
   is_autotag = models.BooleanField(default=False)
+
+class TagContentSimilarity(BaseModel):
+  """
+  Models precomputed tag-content similarity. In this application, we use
+  the Expected Mutual Information Metric (EMIM), which determines similarity
+  using generalized co-occurrence counts.
+  """
+  tag = models.ForeignKey(Tag, related_name='+')
+  content = models.ForeignKey(Content, related_name='+')
+  similarity = models.FloatField()

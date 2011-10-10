@@ -1,1 +1,1 @@
-from similar_tags import similar_tags
+from similar_content import similar_content

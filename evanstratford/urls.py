@@ -4,7 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^similar_tags/(\d+)/$', 'cv.views.ajax.similar_tags'),
+    url(r'^similar_content/(\d+)/$', 'cv.views.ajax.similar_content'),
     url(r'^$', 'cv.views.index'),
     url(r'^admin/', include(admin.site.urls)),
 )

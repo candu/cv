@@ -6,13 +6,16 @@ Usage:
 
 Computes tag similarity across the tags currently in the database.
 Tag similarity is computed using the EMIM metric, which is essentially
-an adjusted co-occurrence measure.
+an adjusted co-occurrence measure. We then use the tag-pair similarity
+metric to compute a tag-content similarity metric.
 """
 
 import logging
 import math
 
-from cv.models import Content, ContentTag, Tag, TagSimilarity
+from django.db import transaction
+
+from cv.models import Content, ContentTag, Tag, TagContentSimilarity
 
 logging.basicConfig(level=logging.INFO)
 
@@ -73,22 +76,27 @@ def get_tag_emims(N, F, C):
       ET1[t2] = emim
   return E
 
-def save_tag_similarity(E):
-  tags = Tag.objects.all()
-  tag_id_mapping = {}
-  for tag in tags:
-    tag_id_mapping[tag.id] = tag
+def get_tag_content_similarity(T, E):
+  S = {}
   for t1, ET1 in E.iteritems():
-    tag1 = tag_id_mapping[t1]
-    for t2, emim in ET1.iteritems():
-      tag2 = tag_id_mapping[t2]
-      ts = TagSimilarity(tag1=tag1,
-                         tag2=tag2,
-                         similarity=emim)
-      ts.save()
+    ST1 = S.setdefault(t1, {})
+    for c, TD in T.iteritems():
+      ST1[c] = sum(E[t1][t2] for t2 in TD) / len(TD)
+  return S
 
+def save_tag_content_similarity(S):
+  tags = Tag.get_id_mapping()
+  contents = Content.get_id_mapping()
+  with transaction.commit_manually():
+    for t, ST in S.iteritems():
+      tag = tags[t]
+      for c, x in ST.iteritems():
+        content = contents[c]
+        tcs = TagContentSimilarity(tag=tag, content=content, similarity=x)
+        tcs.save()
+    transaction.commit()
 
-def build_tag_similarity():
+def build_tag_content_similarity():
   N = Content.objects.count()
   logging.info('building tag similarity across {0} documents'.format(N))
   T = get_document_tag_sets()
@@ -98,8 +106,12 @@ def build_tag_similarity():
   C = get_co_occurrence_counts(T)
   logging.info('computed co-occurrence counts')
   E = get_tag_emims(N, F, C)
-  logging.info('computed EMIM across tag pairs, saving to database...')
-  save_tag_similarity(E)
+  logging.info('computed EMIM across tag pairs')
+  S = get_tag_content_similarity(T, E)
+  logging.info('computed tag-content similarity')
+  save_tag_content_similarity(S)
+  K = TagContentSimilarity.objects.count()
+  logging.info('saved {0} tag-content similarity values'.format(K))
 
 if __name__ == '__main__':
-  build_tag_similarity()
+  build_tag_content_similarity()
