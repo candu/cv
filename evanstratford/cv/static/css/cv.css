@@ -80,7 +80,7 @@
   margin: 2px;
 }
 
-.UIContent {
+.UIActivity {
   border: 1px solid #ddd;
   color: #666;
   font-size: 11px;
@@ -89,7 +89,7 @@
   position: absolute;
 }
 
-.UIContentTitle {
+.UIActivityTitle {
   color: #333;
   font-size: 13px;
   font-weight: 500;

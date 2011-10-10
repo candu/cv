@@ -1,5 +1,6 @@
 from xhpy.pylib import *
 
+from cv.lib.date import date_now
 from cv.lib.text_tagger import TextTagger
 from cv.models import Content, Tag
 from cv.ui.tags import :ui:tag
@@ -19,28 +20,27 @@ class :ui:tagged-text(:x:element):
         tagged_text.appendChild(part)
     return tagged_text
 
-class :ui:content(:x:element):
+class :ui:activity(:x:element):
   PIXELS_PER_DAY = 2
-  attribute Activity activity,
-            datetime.date last-activity-time
+  attribute Content activity
   def render(self):
-    content = self.getAttribute('content')
-    last_content_time = self.getAttribute('last-content-time')
-    time_delta = last_content_time - content.finished
-    time_duration = content.finished - content.started
+    activity = self.getAttribute('activity')
+    today = date_now()
+    time_delta = today - activity.finished
+    time_duration = activity.finished - activity.started
     top = time_delta.days * self.PIXELS_PER_DAY
     min_height = time_duration.days * self.PIXELS_PER_DAY
 
     return \
-        <div class="UIContent" id={'content-{0}'.format(content.id)} style={'top: {0}px; min-height: {1}px'.format(top + 30, min_height)}>
-      <div class="UIContentTitle">
-        {content.title}
+        <div class="UIActivity" id={'activity-{0}'.format(activity.id)} style={'top: {0}px; min-height: {1}px'.format(top + 30, min_height)}>
+      <div class="UIActivityTitle">
+        {activity.title}
       </div>
     </div>
 
 class :ui:timeline(:x:element):
   attribute list contents
-  children :ui:content*
+  children :ui:activity*
   def render(self):
     timeline = \
     <div class="UITimeline">
@@ -52,9 +52,7 @@ class :ui:timeline(:x:element):
       </div>
     </div>
     contents = self.getAttribute('contents')
-    last_content_time = max(c.finished for c in contents)
     for content in contents:
-      timeline.appendChild(
-          <ui:content content={content}
-                      last-content-time={last_content_time}/>)
+      if content.content_type == Content.ACTIVITY:
+        timeline.appendChild(<ui:activity activity={content} />)
     return timeline

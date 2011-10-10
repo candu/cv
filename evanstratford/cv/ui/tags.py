@@ -4,8 +4,8 @@ from cv.models import Tag
 class :ui:tag(:x:element):
   attribute tuple tag-data
   def render(self):
-    path, description = self.getAttribute('tag-data')
-    return <a class="UITag enabled" href="#" title={description}>{path}</a>
+    path, title = self.getAttribute('tag-data')
+    return <a class="UITag enabled" href="#" title={title}>{path}</a>
 
 class :ui:tag-group(:x:element):
   attribute string group-name, list tag-data
@@ -18,17 +18,17 @@ class :ui:tag-group(:x:element):
     </div>
     tags = []
     groups = {}
-    for path, description in self.getAttribute('tag-data'):
+    for path, title in self.getAttribute('tag-data'):
       path_parts = path.split('/')
       if len(path_parts) == 1:
-        tags.append((path, description))
+        tags.append((path, title))
         continue
       group = path_parts[0]
       subpath = '/'.join(path_parts[1:])
       group_tag_data = groups.setdefault(group, [])
-      group_tag_data.append((subpath, description))
-    for path, description in sorted(tags):
-      group_list.appendChild(<ui:tag tag-data={(path, description)} />)
+      group_tag_data.append((subpath, title))
+    for path, title in sorted(tags):
+      group_list.appendChild(<ui:tag tag-data={(path, title)} />)
     for group, group_tag_data in sorted(groups.iteritems()):
       group_list.appendChild(
           <ui:tag-group group-name={group} tag-data={group_tag_data} />)
@@ -42,5 +42,5 @@ class :ui:tags(:x:element):
     for tag in self.getAttribute('tags'):
       if not tag.path.startswith('/'):
         raise Exception('invalid tag path {0}'.format(tag.path))
-      tag_data.append((tag.path[1:], tag.description))
+      tag_data.append((tag.path[1:], tag.title))
     return <ui:tag-group group-name="/" tag-data={tag_data} />
