@@ -15,7 +15,8 @@ class AdminBase(admin.ModelAdmin):
   Media = AdminMedia
 
 class TagAdmin(AdminBase):
-  list_display = ('path', 'title')
+  list_display = ('path',
+                  'id', 'title')
   search_fields = ['path', 'title']
   ordering = ['path']
 
@@ -24,7 +25,8 @@ class ContentAdmin(AdminBase):
     (None, {'fields' : ['content_type', 'title', 'description']}),
     ('Duration', {'fields' : ['started', 'finished']}),
   ]
-  list_display = ('content_type', 'filename', 'title', 'started', 'finished')
+  list_display = ('title',
+                  'id', 'content_type', 'filename', 'started', 'finished')
   search_fields = ['title', 'description']
   ordering = ['-started', '-finished']
 

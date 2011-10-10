@@ -16,5 +16,12 @@ def similar_content(request, tag_id):
   similarity_map = {}
   for ts in similarity:
     similarity_map[ts.content_id] = ts.similarity
-  json = simplejson.dumps(similarity_map)
+  json = simplejson.dumps({
+    'tag': {
+      'id': tag.id,
+      'path': tag.path,
+      'title': tag.title,
+    },
+    'similarity': similarity_map,
+  })
   return json_response(request, json)
