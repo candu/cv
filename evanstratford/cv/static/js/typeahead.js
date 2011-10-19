@@ -159,10 +159,31 @@ var Typeahead = new Class({
   },
 });
 
+function normalize(similarity) {
+  if (similarity == null) {
+    return 0.0;
+  }
+  return parseFloat(similarity);
+}
+
+function redraw() {
+  $$('.UIActivity').each(function(elem) {
+    var leftness = normalize(elem.get('similarity-left'));
+    var rightness = normalize(elem.get('similarity-right'));
+    var relevance = Math.max(leftness, rightness);
+    if (relevance < 1.0) {
+      $$('.UIBottomRanked').grab(elem);
+    } else if (leftness > rightness) {
+      $$('.UILeftRanked').grab(elem);
+    } else {
+      $$('.UIRightRanked').grab(elem);
+    }
+  });
+}
+
 var TypeaheadActor = new Class({
-  initialize : function(side, otherSide) {
+  initialize : function(side) {
     this.side = side;
-    this.otherSide = otherSide;
     this.cache = {}
   },
   load : function(id) {
@@ -186,17 +207,7 @@ var TypeaheadActor = new Class({
       var activityID = elem.id.substring('activity-'.length);
       var mySimilarity = data.similarity[activityID];
       elem.set('similarity-' + this.side, mySimilarity);
-      var otherSimilarity = elem.get('similarity-' + this.otherSide);
-      if (otherSimilarity == null) {
-        otherSimilarity = 0;
-      } else {
-        otherSimilarity = parseFloat(otherSimilarity);
-      }
-      if (mySimilarity > otherSimilarity) {
-        elem.removeClass(this.otherSide).addClass(this.side);
-      } else {
-        elem.removeClass(this.side).addClass(this.otherSide);
-      }
     }.bind(this));
+    redraw();
   }
 });

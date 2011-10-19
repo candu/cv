@@ -44,28 +44,27 @@
   color: #491;
 }
 
-.UITimelineHeader {
+.UIControlsWrapper {
   background-color: #eee;
   border-bottom: 1px solid #ddd;
-  border-bottom-left-radius: 4px;
   border-left: 1px solid #ddd;
   margin-bottom: 4px;
   padding-left: 4px;
   padding-right: 8px;
 }
 
-.UIHorizAxis {
+.UIControls {
   color: #666;
   font-size: 13pt;
   font-weight: 500;
 }
 
-.UIHorizAxisLeft {
+.UILeftTypeahead {
   display: inline-block;
   width: 50%;
 }
 
-.UIHorizAxisRight {
+.UIRightTypeahead {
   display: inline-block;
   text-align: right;
   width: 50%;
@@ -85,18 +84,20 @@
   margin-bottom: 2px;
 }
 
-.UISidebar {
-  float: left;
-  position: fixed;
-  top: 0;
-  width: 150px;
-}
-
-.UIContentContainer {
-  margin-left: 150px;
-}
-
-.UIContent {
+.UITwoColumns {
   width: 100%;
-  float: right;
+}
+
+.UIHeader {
+  width: 100%;
+  clear: both;
+}
+
+.UITwoColumns .UIColumn {
+  width: 50%;
+  display: inline-block;
+}
+
+.UIColumns {
+  position: relative;
 }

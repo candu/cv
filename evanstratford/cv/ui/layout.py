@@ -1,17 +1,23 @@
 from xhpy.pylib import *
 
-class :ui:two-column-layout(:x:element):
-  children :x:element, :x:element
+class :ui:two-columns(:x:element):
+  children :div, :div, :div, :div
   def render(self):
-    left, right = self.getChildren()
+    header, left, right, footer = self.getChildren()
     return \
-    <div class="UITwoColumnLayout">
-      <div class="UISidebar">
-        {left}
+    <div class="UITwoColumns">
+      <div class="UIHeader">
+        {header}
       </div>
-      <div class="UIContentContainer">
-        <div class="UIContent">
+      <div class="UIColumns">
+        <div class="UIColumn">
+          {left}
+        </div>
+        <div class="UIColumn">
           {right}
         </div>
+      </div>
+      <div class="UIFooter">
+        {footer}
       </div>
     </div>

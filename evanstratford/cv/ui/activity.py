@@ -22,8 +22,6 @@ class :ui:tagged-text(:x:element):
     return tagged_text
 
 class :ui:activity(:x:element):
-  PIXELS_PER_DAY = 2
-  PIXELS_FROM_TOP = 30
   attribute Content activity
   def render(self):
     activity = self.getAttribute('activity')
@@ -34,34 +32,3 @@ class :ui:activity(:x:element):
         {activity.title}
       </div>
     </div>
-
-class :ui:timeline-header(:x:element):
-  def render(self):
-    return \
-    <div class="UITimelineHeader">
-      <div class="UIHorizAxis">
-        <div class="UIHorizAxisLeft">
-          <ui:typeahead />
-        </div>
-        <div class="UIHorizAxisRight">
-          <ui:typeahead />
-        </div>
-      </div>
-    </div>
-
-class :ui:timeline(:x:element):
-  attribute list contents
-  children :ui:activity*
-  def render(self):
-    timeline = \
-    <div class="UITimeline">
-      <ui:timeline-header />
-    </div>
-    contents = self.getAttribute('contents')
-    activities = sorted(
-        [c for c in contents if c.content_type == Content.ACTIVITY],
-        key=lambda c: c.finished,
-        reverse=True)
-    for activity in activities:
-      timeline.appendChild(<ui:activity activity={activity} />)
-    return timeline

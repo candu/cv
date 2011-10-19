@@ -16,6 +16,7 @@
   width: 300px;
   position: absolute;
   top: 42px;
+  z-index: 1000;
 }
 
 .UITypeaheadSuggestionCount {
@@ -38,12 +39,4 @@
 
 .selected {
   background-color: #9cf;
-}
-
-.left {
-  background-color: #f00;
-}
-
-.right {
-  background-color: #0f0;
 }

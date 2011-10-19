@@ -1,6 +1,6 @@
 window.addEvent('domready', function() {
-  var leftActor = new TypeaheadActor('left', 'right');
-  var rightActor = new TypeaheadActor('right', 'left');
+  var leftActor = new TypeaheadActor('left');
+  var rightActor = new TypeaheadActor('right');
   // TODO: chain these, since actor should load entire EMIM map
   new Typeahead($$('.UITypeahead')[0], new DataSource(), function(id) {
     leftActor.load(id);
