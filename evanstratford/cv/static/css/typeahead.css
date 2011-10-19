@@ -1,0 +1,41 @@
+.UITypeahead {
+  padding: 2px;
+  background: #eee;
+  position: relative;
+}
+
+.UITypeaheadInput {
+  border: 1px solid #ccc;
+  width: 300px;
+  font-size: 20pt;
+}
+
+.UITypeaheadDropdown {
+  border: 1px solid #ccc;
+  width: 300px;
+  position: absolute;
+  top: 42px;
+}
+
+.UITypeaheadSuggestionCount {
+  font-size: 11pt;
+}
+
+.UITypeaheadSuggestions {
+  margin: 2px;
+}
+
+.UITypeaheadSuggestion {
+}
+
+.inactive {
+  color: #999;
+}
+
+.hidden {
+  display: none;
+}
+
+.selected {
+  background-color: #9cf;
+}

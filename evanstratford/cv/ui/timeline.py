@@ -22,19 +22,36 @@ class :ui:tagged-text(:x:element):
 
 class :ui:activity(:x:element):
   PIXELS_PER_DAY = 2
+  PIXELS_FROM_TOP = 30
   attribute Content activity
   def render(self):
     activity = self.getAttribute('activity')
     today = date_now()
     time_delta = today - activity.finished
     time_duration = activity.finished - activity.started
-    top = time_delta.days * self.PIXELS_PER_DAY
+    top = time_delta.days * self.PIXELS_PER_DAY + self.PIXELS_FROM_TOP
     min_height = time_duration.days * self.PIXELS_PER_DAY
-
+    activity_id = 'activity-{0}'.format(activity.id)
+    style = 'top: {0}px; min-height: {1}px'.format(top, min_height)
+    print activity.id, activity.title, activity.started, activity.finished, top, min_height
     return \
-        <div class="UIActivity" id={'activity-{0}'.format(activity.id)} style={'top: {0}px; min-height: {1}px'.format(top + 30, min_height)}>
+    <div class="UIActivity" id={activity_id} style={style}>
       <div class="UIActivityTitle">
         {activity.title}
+      </div>
+    </div>
+
+class :ui:timeline-header(:x:element):
+  def render(self):
+    return \
+    <div class="UITimelineHeader">
+      <div class="UIHorizAxis">
+        <div class="UIHorizAxisLeft">
+          <ui:tag-typeahead />
+        </div>
+        <div class="UIHorizAxisRight">
+          <ui:tag-typeahead />
+        </div>
       </div>
     </div>
 
@@ -44,12 +61,7 @@ class :ui:timeline(:x:element):
   def render(self):
     timeline = \
     <div class="UITimeline">
-      <div class="UITimelineHeader">
-        <div class="UIHorizAxis">
-          <div class="UIHorizAxisLeft"><div>work</div></div>
-          <div class="UIHorizAxisRight"><div>play</div></div>
-        </div>
-      </div>
+      <ui:timeline-header />
     </div>
     contents = self.getAttribute('contents')
     for content in contents:
