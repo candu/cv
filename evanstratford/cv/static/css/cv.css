@@ -27,21 +27,16 @@
 }
 
 .UITag {
-  background-color: #fb8;
-  border: 1px solid #fa7;
-  color: #f41;
+  background-color: #fe7;
+  border: 1px solid #ed5;
+  color: #963;
+  cursor: default;
   display: inline-block;
   font-size: 11px;
   font-weight: 500;
   margin: 1px;
   padding: 1px;
   text-decoration: none;
-}
-
-.UITag.enabled {
-  background-color: #af7;
-  border: 1px solid #8f5;
-  color: #491;
 }
 
 .UIControls {
@@ -136,4 +131,8 @@
   background-color: #fc9;
   border: 1px solid #fb8;
   color: #642;
+}
+
+.UIActivityTags {
+  float: right;
 }

@@ -5,7 +5,7 @@ class :ui:tag(:x:element):
   attribute tuple tag-data
   def render(self):
     path, title = self.getAttribute('tag-data')
-    return <a class="UITag enabled" href="#" title={title}>{path}</a>
+    return <a class="UITag" title={title}>{path}</a>
 
 class :ui:tag-group(:x:element):
   attribute string group-name, list tag-data

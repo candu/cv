@@ -4,9 +4,9 @@ from cv.lib.date import date_now
 from cv.lib.text_tagger import TextTagger
 from cv.models import Content, Tag
 from cv.ui.tags import :ui:tag
-from cv.ui.typeahead import :ui:typeahead
 
 import datetime
+import random
 
 class :ui:tagged-text(:x:element):
   children pcdata
@@ -15,7 +15,7 @@ class :ui:tagged-text(:x:element):
     tagged_text = <div class="UITaggedText" />
     for part in TextTagger.tag(text):
       if isinstance(part, Tag):
-        tag_data = (part.baseName(), part.description)
+        tag_data = (part.baseName(), part.title)
         tagged_text.appendChild(<ui:tag tag-data={tag_data} />)
       else:
         tagged_text.appendChild(part)
@@ -29,14 +29,27 @@ class :text(:x:primitive):
     return text
 
 class :ui:activity(:x:element):
+  DATE_FORMAT = '%b %e, %Y'
   attribute Content activity
   def render(self):
     activity = self.getAttribute('activity')
     activity_id = 'activity-{0}'.format(activity.id)
+    activity_tags = <div class="UIActivityTags" />
+    for tag in activity.tags.all():
+      tag_data = (tag.baseName(), tag.title)
+      activity_tags.appendChild(<ui:tag tag-data={tag_data} />)
+    activity_started = activity.started.strftime(self.DATE_FORMAT)
+    activity_finished = activity.finished.strftime(self.DATE_FORMAT)
     return \
     <div class="UIActivity" id={activity_id}>
-      <div class="UIActivityTitle">
-        {activity.title}
+      <div class="UIActivityHeader">
+        {activity_tags}
+        <div class="UIActivityTitle">
+          {activity.title}
+        </div>
+        <div class="UIActivityDate">
+          {'{0} to {1}'.format(activity_started, activity_finished)}
+        </div>
       </div>
       <div class="UIActivityDescription">
         <text>
