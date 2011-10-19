@@ -11,6 +11,7 @@
 }
 
 .UITypeaheadDropdown {
+  background-color: #fff;
   border: 1px solid #ccc;
   width: 300px;
   position: absolute;
@@ -22,7 +23,6 @@
 }
 
 .UITypeaheadSuggestions {
-  margin: 2px;
 }
 
 .UITypeaheadSuggestion {

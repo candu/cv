@@ -44,10 +44,6 @@
   color: #491;
 }
 
-.UITimeline {
-  position: relative;
-}
-
 .UITimelineHeader {
   background-color: #eee;
   border-bottom: 1px solid #ddd;
@@ -80,8 +76,6 @@
   color: #666;
   font-size: 11px;
   padding: 2px;
-  width: 150px;
-  position: absolute;
 }
 
 .UIActivityTitle {
