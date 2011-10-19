@@ -1,12 +1,24 @@
 var DataSource = new Class({
   initialize : function() {
+    new Request.JSON({
+      url : '/tags',
+      method : 'get',
+      onSuccess : function(data) {
+        this.load(data);
+      }.bind(this)
+    }).send();
+  },
+  load : function(data) {
+    this.tags = data;
   },
   match : function(value) {
-    var a = ['foo'];
-    for (var i = 0; i < value.length; i++) {
-      a.push(i);
+    var matches = [];
+    for (tag in this.tags) {
+      if (tag.contains(value)) {
+        matches.push(tag);
+      }
     }
-    return a;
+    return matches;
   }
 });
 
