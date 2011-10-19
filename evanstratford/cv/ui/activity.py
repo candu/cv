@@ -21,6 +21,13 @@ class :ui:tagged-text(:x:element):
         tagged_text.appendChild(part)
     return tagged_text
 
+class :text(:x:primitive):
+  children pcdata
+  category %flow
+  def stringify(self):
+    text = self.getChildren()[0]
+    return text
+
 class :ui:activity(:x:element):
   attribute Content activity
   def render(self):
@@ -30,5 +37,10 @@ class :ui:activity(:x:element):
     <div class="UIActivity" id={activity_id}>
       <div class="UIActivityTitle">
         {activity.title}
+      </div>
+      <div class="UIActivityDescription">
+        <text>
+          {activity.description}
+        </text>
       </div>
     </div>

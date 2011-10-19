@@ -179,6 +179,17 @@ function redraw() {
       $$('.UIRightRanked').grab(elem);
     }
   });
+  if ($$('.UILeftRanked')[0].getChildren('.UIActivity').length == 0) {
+    $$('.UILeftRanked').getFirst('.UIColumnEmpty').removeClass('hidden');
+  } else {
+    $$('.UILeftRanked').getFirst('.UIColumnEmpty').addClass('hidden');
+  }
+  if ($$('.UIRightRanked')[0].getChildren('.UIActivity').length == 0) {
+    $$('.UIRightRanked').getFirst('.UIColumnEmpty').removeClass('hidden');
+  } else {
+    $$('.UIRightRanked').getFirst('.UIColumnEmpty').addClass('hidden');
+  }
+  // TODO: update URL hash
 }
 
 var TypeaheadActor = new Class({

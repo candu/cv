@@ -8,4 +8,5 @@ window.addEvent('domready', function() {
   new Typeahead($$('.UITypeahead')[1], new DataSource(), function(id) {
     rightActor.load(id);
   }).listen();
+  redraw();
 });

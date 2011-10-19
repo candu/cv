@@ -29,12 +29,26 @@ def index(request):
   bottom_ranked = <div class="UIBottomRanked" />
   for activity in activities:
     bottom_ranked.appendChild(<ui:activity activity={activity} />)
+  empty_column = \
+  <div class="UIColumnEmpty hidden">
+    <div class="UIActivityTitle">
+      Hey!
+    </div>
+    <div class="UIActivityDescription">
+      This column contains content that is more relevant to the above tag.
+      Use the box above to select a tag.
+    </div>
+  </div>
   page = \
   <ui:page title="Evan Stratford :: CV">
     <ui:two-columns>
       {controls}
-      <div class="UILeftRanked" />
-      <div class="UIRightRanked" />
+      <div class="UILeftRanked">
+        {empty_column}
+      </div>
+      <div class="UIRightRanked">
+        {empty_column}
+      </div>
       {bottom_ranked}
     </ui:two-columns>
   </ui:page>

@@ -5,6 +5,7 @@
 }
 
 .UITypeaheadInput {
+  font-family: Ubuntu, sans-serif;
   border: 1px solid #ccc;
   width: 300px;
   font-size: 20pt;
@@ -17,6 +18,10 @@
   position: absolute;
   top: 42px;
   z-index: 1000;
+}
+
+.UIRightTypeahead .UITypeaheadDropdown {
+  right: 2px;
 }
 
 .UITypeaheadSuggestionCount {
