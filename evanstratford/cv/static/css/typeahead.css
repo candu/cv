@@ -39,3 +39,11 @@
 .selected {
   background-color: #9cf;
 }
+
+.left {
+  background-color: #f00;
+}
+
+.right {
+  background-color: #0f0;
+}

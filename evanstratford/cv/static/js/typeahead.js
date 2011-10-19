@@ -15,9 +15,10 @@ var DataSource = new Class({
     var matches = [];
     for (tag in this.tags) {
       if (tag.contains(value)) {
-        matches.push(tag);
+        matches.push([tag, this.tags[tag]]);
       }
     }
+    matches.sort();
     return matches;
   }
 });
@@ -54,7 +55,7 @@ var Dropdown = new Class({
     var start = Math.min(this.matches.length - this.size, this.selected);
     var end = start + this.size;
     for (var i = 0; i < this.matches.length; i++) {
-      var elem = $('suggestion-' + i);
+      var elem = this.root.getFirst('#suggestion-' + i);
       if (i == this.selected) {
         elem.addClass('selected');
       } else {
@@ -73,7 +74,7 @@ var Dropdown = new Class({
   },
   selectByIndex : function(index) {
     this.hide();
-    return $('suggestion-' + index).get('text');
+    return this.matches[index];
   },
   clear : function() {
     this.root.getChildren('.UITypeaheadSuggestion').each(function(elem) {
@@ -82,10 +83,13 @@ var Dropdown = new Class({
   },
   repopulate : function() {
     for (var i = 0; i < this.matches.length; i++) {
+      var key = this.matches[i][0];
+      var value = this.matches[i][1];
       var elem = new Element('div', {
         class : 'UITypeaheadSuggestion hidden',
-        text : this.matches[i],
-        id : 'suggestion-' + i
+        text : key,
+        id : 'suggestion-' + i,
+        value : value
       }).addEvent('click', function(event) {
         this.selectByIndex(i);
       }.bind(this));
@@ -100,7 +104,10 @@ var Dropdown = new Class({
     if (value == this.value) return;
     this.value = value;
     this.matches = this.source.match(value);
-    if (this.matches.length == 0) this.hide();
+    if (!this.matches) {
+      this.hide();
+      return;
+    }
     this.clear();
     this.repopulate();
     this.selected = 0;
@@ -110,10 +117,11 @@ var Dropdown = new Class({
 });
 
 var Typeahead = new Class({
-  initialize : function(root, source) {
+  initialize : function(root, source, callback) {
     this.input = root.getElement('.UITypeaheadInput')
     this.dropdown = new Dropdown(
         root.getElement('.UITypeaheadDropdown'), source);
+    this.callback = callback;
   },
   listen : function() {
     this.input.addEvents({
@@ -140,9 +148,55 @@ var Typeahead = new Class({
         switch (event.key) {
           case 'up':    this.dropdown.prev(); break;
           case 'down':  this.dropdown.next(); break;
-          case 'enter': this.input.value = this.dropdown.select(); break;
+          case 'enter':
+            var selected = this.dropdown.select();
+            this.input.value = selected[0];
+            this.callback(selected[1]);
+            break;
         }
       }.bind(this)
     });
   },
+});
+
+var TypeaheadActor = new Class({
+  initialize : function(side, otherSide) {
+    this.side = side;
+    this.otherSide = otherSide;
+    this.cache = {}
+  },
+  load : function(id) {
+    if (id in this.cache) {
+      this.act(id);
+      return;
+    }
+    // TODO: this should block the typeahead until it's done...
+    new Request.JSON({
+      url : '/similar_content/' + id,
+      method : 'get',
+      onSuccess : function(data) {
+        this.cache[id] = data;
+        this.act(id);
+      }.bind(this)
+    }).send();
+  },
+  act : function(id) {
+    var data = this.cache[id];
+    $$('.UIActivity').each(function(elem) {
+      var activityID = elem.id.substring('activity-'.length);
+      var mySimilarity = data.similarity[activityID];
+      elem.set('similarity-' + this.side, mySimilarity);
+      var otherSimilarity = elem.get('similarity-' + this.otherSide);
+      if (otherSimilarity == null) {
+        otherSimilarity = 0;
+      } else {
+        otherSimilarity = parseFloat(otherSimilarity);
+      }
+      if (mySimilarity > otherSimilarity) {
+        elem.removeClass(this.otherSide).addClass(this.side);
+      } else {
+        elem.removeClass(this.side).addClass(this.otherSide);
+      }
+    }.bind(this));
+  }
 });
