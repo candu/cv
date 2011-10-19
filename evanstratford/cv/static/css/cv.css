@@ -70,20 +70,6 @@
   width: 50%;
 }
 
-.UIActivity {
-  border: 1px solid #ddd;
-  color: #666;
-  font-size: 11px;
-  padding: 2px;
-}
-
-.UIActivityTitle {
-  color: #333;
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 2px;
-}
-
 .UITwoColumns {
   width: 100%;
 }
@@ -96,8 +82,48 @@
 .UITwoColumns .UIColumn {
   width: 50%;
   display: inline-block;
+  vertical-align: top;
 }
 
 .UIColumns {
   position: relative;
+  border-bottom: 1px solid #ccc;
+}
+
+.UIHeader {
+  border-bottom: 1px solid #ccc;
+}
+
+.UILeftRanked {
+  border-right: 1px solid #ccc;
+}
+
+.UIActivity {
+  font-size: 11px;
+  padding: 2px;
+  margin: 2px;
+}
+
+.UIActivityTitle {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.UILeftRanked > .UIActivity {
+  background-color: #cf9;
+  border: 1px solid #bf8;
+  color: #350;
+}
+
+.UIRightRanked > .UIActivity {
+  background-color: #bdf;
+  border: 1px solid #acf;
+  color: #246;
+}
+
+.UIBottomRanked > .UIActivity {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  color: #444;
 }
