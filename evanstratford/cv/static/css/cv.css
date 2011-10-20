@@ -85,6 +85,11 @@
   border-right: 1px solid #ccc;
 }
 
+.UIRightRanked {
+  border-left: 1px solid #ccc;
+  margin-left: -1px;
+}
+
 .UIActivity,.UIColumnEmpty {
   padding: 2px;
   margin: 2px;

@@ -166,18 +166,40 @@ function normalize(similarity) {
   return parseFloat(similarity);
 }
 
+function getFinishDate(elem) {
+  return +(
+      new Date(elem.getElement('.UIActivityDate').get('text').split('to')[1]));
+}
+
 function redraw() {
+  function rank(e1, e2) {
+    var timeDiff = getFinishDate(e2) - getFinishDate(e1);
+  }
+  var threshold = 1.0;
+
+  var bottom = [];
+  var left = [];
+  var right = [];
   $$('.UIActivity').each(function(elem) {
     var leftness = normalize(elem.get('similarity-left'));
     var rightness = normalize(elem.get('similarity-right'));
-    var relevance = Math.max(leftness, rightness);
-    if (relevance < 1.0) {
-      $$('.UIBottomRanked').grab(elem);
+    relevance = Math.max(leftness, rightness);
+    if (relevance < threshold) {
+      bottom.push(elem);
     } else if (leftness > rightness) {
-      $$('.UILeftRanked').grab(elem);
+      left.push(elem);
     } else {
-      $$('.UIRightRanked').grab(elem);
+      right.push(elem);
     }
+  });
+  bottom.sort(rank).each(function(elem) {
+    $$('.UIBottomRanked').grab(elem);    
+  });
+  left.sort(rank).each(function(elem) {
+    $$('.UILeftRanked').grab(elem);    
+  });
+  right.sort(rank).each(function(elem) {
+    $$('.UIRightRanked').grab(elem);    
   });
   if ($$('.UILeftRanked')[0].getChildren('.UIActivity').length == 0) {
     $$('.UILeftRanked').getFirst('.UIColumnEmpty').removeClass('hidden');
