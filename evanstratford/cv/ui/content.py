@@ -27,34 +27,34 @@ class :text(:x:primitive):
     text = self.getChildren()[0]
     return text
 
-class :ui:activity(:x:element):
+class :ui:content(:x:element):
   DATE_FORMAT = '%b %e, %Y'
-  attribute Content activity
+  attribute Content content
   def render(self):
-    activity = self.getAttribute('activity')
-    activity_id = 'activity-{0}'.format(activity.id)
-    activity_tags = <div class="UIActivityTags" />
-    for tag in activity.tags.all():
-      activity_tags.appendChild(<ui:tag tag={tag} />)
-    activity_date = activity.finished.strftime(self.DATE_FORMAT)
-    if activity.started is not None:
-      activity_date = '{0} to {1}'.format(
-          activity.started.strftime(self.DATE_FORMAT),
-          activity_date)
+    content = self.getAttribute('content')
+    content_id = 'content-{0}'.format(content.id)
+    content_tags = <div class="UIContentTags" />
+    for tag in content.tags.all():
+      content_tags.appendChild(<ui:tag tag={tag} />)
+    content_date = content.finished.strftime(self.DATE_FORMAT)
+    if content.started is not None:
+      content_date = '{0} to {1}'.format(
+          content.started.strftime(self.DATE_FORMAT),
+          content_date)
     return \
-    <div class="UIActivity" id={activity_id}>
-      <div class="UIActivityHeader">
-        {activity_tags}
-        <div class="UIActivityTitle">
-          {activity.title}
+    <div class="UIContent" id={content_id}>
+      <div class="UIContentHeader">
+        {content_tags}
+        <div class="UIContentTitle">
+          {content.title}
         </div>
-        <div class="UIActivityDate">
-          {activity_date}
+        <div class="UIContentDate">
+          {content_date}
         </div>
       </div>
-      <div class="UIActivityDescription">
+      <div class="UIContentDescription">
         <text>
-          {activity.description}
+          {content.description}
         </text>
       </div>
     </div>
