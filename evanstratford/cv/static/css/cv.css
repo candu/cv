@@ -7,30 +7,11 @@
   position: relative;
 }
 
-.UITagGroup {
-  background-color: #eee;
-  border: 1px solid #ccc;
-  margin: 1px;
-  padding: 1px;
-  width: 120px;
-}
-
-.UITagGroup:hover {
-  background-color: #ddd;
-  border: 1px solid #bbb;
-}
-
-.UITagGroupName {
-  color: #666;
-  font-size: 10px;
-  font-weight: 300;
-}
-
 .UITag {
   background-color: #fe7;
   border: 1px solid #ed5;
   color: #963;
-  cursor: default;
+  cursor: pointer;
   display: inline-block;
   font-size: 11px;
   font-weight: 500;

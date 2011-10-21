@@ -5,4 +5,5 @@ class :ui:tag(:x:element):
   attribute Tag tag
   def render(self):
     tag = self.getAttribute('tag')
-    return <a class="UITag" title={tag.title}>{tag.name}</a>
+    tag_id = 'tag-{0}'.format(tag.id)
+    return <a class={'UITag {0}'.format(tag_id)} title={tag.title}>{tag.name}</a>
