@@ -2,15 +2,13 @@ from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 
 from cv.lib.text_tagger import TextTagger
-from cv.models import Content, Event
+from cv.models import Content
 
 def autotag_content(content):
   blurb_tags = TextTagger.getTags(content.blurb)
   description_tags = TextTagger.getTags(content.description)
-  content.tags = blurb_tags.union(description_tags)
-
-def autotag_event(event):
-  event.tags = TextTagger.getTags(event.blurb)
+  for tag in blurb_tags.union(description_tags):
+    content.tags.add(tag)
 
 @receiver(pre_save, sender=Content)
 def pre_save_content(sender, instance, raw, using, *args, **kwargs):

@@ -3,7 +3,7 @@ from xhpy.pylib import *
 from cv.lib.date import date_now
 from cv.lib.text_tagger import TextTagger
 from cv.models import Content, Tag
-from cv.ui.tags import :ui:tag
+from cv.ui.tag import :ui:tag
 
 import datetime
 import random
@@ -15,8 +15,7 @@ class :ui:tagged-text(:x:element):
     tagged_text = <div class="UITaggedText" />
     for part in TextTagger.tag(text):
       if isinstance(part, Tag):
-        tag_data = (part.baseName(), part.title)
-        tagged_text.appendChild(<ui:tag tag-data={tag_data} />)
+        tagged_text.appendChild(<ui:tag tag={tag} />)
       else:
         tagged_text.appendChild(part)
     return tagged_text
@@ -36,10 +35,12 @@ class :ui:activity(:x:element):
     activity_id = 'activity-{0}'.format(activity.id)
     activity_tags = <div class="UIActivityTags" />
     for tag in activity.tags.all():
-      tag_data = (tag.baseName(), tag.title)
-      activity_tags.appendChild(<ui:tag tag-data={tag_data} />)
-    activity_started = activity.started.strftime(self.DATE_FORMAT)
-    activity_finished = activity.finished.strftime(self.DATE_FORMAT)
+      activity_tags.appendChild(<ui:tag tag={tag} />)
+    activity_date = activity.finished.strftime(self.DATE_FORMAT)
+    if activity.started is not None:
+      activity_date = '{0} to {1}'.format(
+          activity.started.strftime(self.DATE_FORMAT),
+          activity_date)
     return \
     <div class="UIActivity" id={activity_id}>
       <div class="UIActivityHeader">
@@ -48,7 +49,7 @@ class :ui:activity(:x:element):
           {activity.title}
         </div>
         <div class="UIActivityDate">
-          {'{0} to {1}'.format(activity_started, activity_finished)}
+          {activity_date}
         </div>
       </div>
       <div class="UIActivityDescription">

@@ -1,9 +1,9 @@
 from xhpy.pylib import *
 
 class :ui:two-columns(:x:element):
-  children :div, :div, :div, :div
+  children :div, :div, :div
   def render(self):
-    header, left, right, footer = self.getChildren()
+    header, left, right = self.getChildren()
     return \
     <div class="UITwoColumns">
       <div class="UIHeader">
@@ -16,8 +16,5 @@ class :ui:two-columns(:x:element):
         <div class="UIColumn">
           {right}
         </div>
-      </div>
-      <div class="UIFooter">
-        {footer}
       </div>
     </div>

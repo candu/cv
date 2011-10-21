@@ -53,58 +53,13 @@ class BaseModel(models.Model):
     abstract = True
 
 class Tag(BaseModel):
-  """
-  Tags are little semantic markers describing other pieces of this CV. They are
-  primarily used for a sort of tag similarity filtering mechanism, enabling the
-  viewer/reader to manipulate the CV. The timeline layout here is actually
-  two-dimensional: vertical for time, horizontal for tag similarity based on
-  whatever tags the user has selected.
-  """
-  path = models.CharField(max_length=255)
+  name = models.CharField(max_length=255)
   title = models.CharField(max_length=255)
 
-  def baseName(self):
-    return self.path.split('/')[-1]
-
 class Content(BaseModel):
-  """
-  Parent class for content types. Instead of having separate Activity, Event,
-  and Era tables, this uses the contenttype column to decide what everything
-  is.
-  """
-  # Content types
-
-  tags = models.ManyToManyField(Tag, through='ContentTag')
-  ACTIVITY = 'activity'
-  ERA = 'era'
-  EVENT = 'event'
-  CONTENT_TYPE_CHOICES = (
-      (ACTIVITY, ACTIVITY),
-      (ERA, ERA),
-      (EVENT, EVENT),
-  )
-  content_type = models.CharField(max_length=255, choices=CONTENT_TYPE_CHOICES)
+  tags = models.ManyToManyField(Tag)
   filename = models.CharField(max_length=255)
   title = models.CharField(max_length=255)
   description = models.TextField()
-  started = models.DateField()
-  finished = models.DateField(null=True, blank=True)
-
-class ContentTag(BaseModel):
-  """
-  We use this to track which tags are autotags; we want non-autotags to
-  persist across content updates, whereas autotags should be regenerated.
-  """
-  content = models.ForeignKey(Content)
-  tag = models.ForeignKey(Tag)
-  is_autotag = models.BooleanField(default=False)
-
-class TagContentSimilarity(BaseModel):
-  """
-  Models precomputed tag-content similarity. In this application, we use
-  the Expected Mutual Information Metric (EMIM), which determines similarity
-  using generalized co-occurrence counts.
-  """
-  tag = models.ForeignKey(Tag, related_name='+')
-  content = models.ForeignKey(Content, related_name='+')
-  similarity = models.FloatField()
+  started = models.DateField(null=True, blank=True)
+  finished = models.DateField()
