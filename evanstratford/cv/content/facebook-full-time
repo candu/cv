@@ -1,6 +1,6 @@
 Software Engineer
 Dec 06, 2010 to now
-/orgs/facebook, /db/hive, /db/mysql, /db/memcache, /js, /css, /c++, /c++/stl, /c++/boost, /python, /places/sf
+facebook, hive, mysql, memcache, js, css, c++, stl, boost, python, sf
 
 - Built search for groups content end-to-end, marking the first use of our in-house graph search system for fulltext search
 - Responsible for everything from the indexing pipeline to the realtime update infrastructure to the frontend implementation of design mocks

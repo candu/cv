@@ -1,6 +1,6 @@
 Software Engineering Intern
 Sep 01, 2009 to Dec 23, 2009
-/orgs/facebook, /c++, /bash, /db/hive, /db/memcache, /ruby
+facebook, c++, bash, hive, memcache, ruby
 
 - Developed a real-time spam detection system capable of handling millions of user messages per second
 - Tested and deployed an internal Thrift service for QR code generation, using my own port of rQRCode to C++

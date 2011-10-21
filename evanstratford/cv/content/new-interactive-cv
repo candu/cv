@@ -1,6 +1,6 @@
 Interactive CV
 Sep 23, 2011 to now 
-/python, /python/xhpy, /python/django, /js, /css, /js/mootools, /html5, /writing/cv
+python, xhpy, django, js, css, mootools, html5, cv
 
 - Designed and built this online CV using Django, XHPy, mootools, and HTML5
 - Implemented a tag similarity algorithm based upon the Expected Mutual Information Measure
