@@ -20,21 +20,10 @@
   text-decoration: none;
 }
 
-.UIControls {
-  color: #666;
-  font-size: 13pt;
-  font-weight: 500;
-}
-
-.UILeftTypeahead {
-  display: inline-block;
-  width: 50%;
-}
-
-.UIRightTypeahead {
-  display: inline-block;
-  text-align: right;
-  width: 50%;
+.UITag.selected {
+  background-color: #af7;
+  border: 1px solid #8f5;
+  color: #491;
 }
 
 .UITwoColumns {
@@ -47,31 +36,25 @@
   background-color: #eee;
 }
 
-.UITwoColumns .UIColumn {
-  width: 50%;
+.UIColumn {
   display: inline-block;
   vertical-align: top;
 }
 
-.UIColumns {
-  position: relative;
-  border-bottom: 1px solid #ccc;
+.UIColumn.left {
+  width: 0%;
+}
+
+.UIColumn.right {
+  width: 100%;
 }
 
 .UIHeader {
   border-bottom: 1px solid #ccc;
+  height: 22px;
 }
 
-.UILeftRanked {
-  border-right: 1px solid #ccc;
-}
-
-.UIRightRanked {
-  border-left: 1px solid #ccc;
-  margin-left: -1px;
-}
-
-.UIContent,.UIColumnEmpty {
+.UIContent {
   padding: 2px;
   margin: 2px;
 }
@@ -80,19 +63,10 @@
   font-size: 11px;
 }
 
-.UIColumnEmpty {
-  font-size: 14px;
-  text-align: center;
-}
-
 .UIContentTitle {
   font-size: 13px;
   font-weight: 500;
   margin-bottom: 2px;
-}
-
-.UIColumnEmpty > .UIContentTitle {
-  font-size: 18px;
 }
 
 .UILeftRanked > .UIContent {
@@ -102,21 +76,9 @@
 }
 
 .UIRightRanked > .UIContent {
-  background-color: #bdf;
-  border: 1px solid #acf;
-  color: #246;
-}
-
-.UIBottomRanked > .UIContent {
   background-color: #ddd;
   border: 1px solid #ccc;
   color: #444;
-}
-
-.UIColumnEmpty {
-  background-color: #fc9;
-  border: 1px solid #fb8;
-  color: #642;
 }
 
 .UIContentTags {

@@ -10,10 +10,10 @@ class :ui:two-columns(:x:element):
         {header}
       </div>
       <div class="UIColumns">
-        <div class="UIColumn">
+        <div class="UIColumn left">
           {left}
         </div>
-        <div class="UIColumn">
+        <div class="UIColumn right">
           {right}
         </div>
       </div>

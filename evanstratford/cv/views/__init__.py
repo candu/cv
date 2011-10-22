@@ -21,7 +21,7 @@ def index(request):
   <ui:page title="Evan Stratford :: CV">
     <ui:two-columns>
       {controls}
-      <div class="UILeftRanked hidden" />
+      <div class="UILeftRanked" />
       {right_ranked}
     </ui:two-columns>
   </ui:page>
