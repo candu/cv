@@ -4,7 +4,6 @@ from xhpy.pylib import *
 class :ui:page(:x:element):
   attribute string title
   def render(self):
-    print 'render page'
     title = self.getAttribute('title')
     head = \
     <head>
