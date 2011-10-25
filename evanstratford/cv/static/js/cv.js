@@ -1,39 +1,3 @@
-var TagSet = new Class({
-  initialize : function() {
-    this.S = {};
-    this.n = 0;
-  },
-  add : function(k) {
-    if (k in this.S) {
-      return;
-    }
-    this.S[k] = true;
-    this.n++;
-  },
-  remove : function(k) {
-    if (k in this.S) {
-      delete this.S[k];
-      this.n--;
-    }
-  },
-  contains : function(k) {
-    return k in this.S;
-  },
-  size : function() {
-    return this.n;
-  },
-  empty : function() {
-    return this.n == 0;
-  },
-  toArray : function() {
-    var a = [];
-    for (k in this.S) {
-      a.push(k);
-    }
-    return a;
-  }
-});
-
 Fx.Multiplex = new Class({
   initialize : function(elements, options) {
     this.elements = elements;
@@ -49,11 +13,11 @@ Fx.Multiplex = new Class({
   }
 });
 
-var EFFECT_DURATION = 100;
+var EFFECT_DURATION = 200;
 
 var ContentManager = new Class({
   initialize : function() {
-    this.selected_tags = new TagSet();
+    this.selected_tags = {};
     $$('.UITag').addEvent('click', function(event) {
       this.selectTag(event.target);
     }.bind(this));
@@ -73,6 +37,7 @@ var ContentManager = new Class({
   },
   sortContents : function(elems) {
     var elementSort = new Fx.Sort(elems, {
+      duration : EFFECT_DURATION,
       onComplete : function() {
         this.rearrangeDOM();
       }
@@ -92,14 +57,14 @@ var ContentManager = new Class({
       });
     });
     new Fx.Multiplex(elementsToMove, {
+      duration : EFFECT_DURATION,
       onComplete : function() {
         $$('.UILeftRanked').adopt(elementsToMove);
+        var elementsAtLeft =
+            $$('.UILeftRanked')[0].getElements('.UIContent');
+        this.sortContents(elementsAtLeft);
         new Fx.Multiplex(elementsToMove, {
-          onComplete : function() {
-            var elementsAtLeft =
-                $$('.UILeftRanked')[0].getElements('.UIContent');
-            this.sortContents(elementsAtLeft);
-          }.bind(this)
+          duration : EFFECT_DURATION
         }).start({
           'opacity' : [0, 1]
         });
@@ -112,28 +77,23 @@ var ContentManager = new Class({
     var elementsAtLeft =
         $$('.UILeftRanked')[0].getElements('.UIContent');
     var elementsToMove = elementsAtLeft.filter(function(elem) {
-      var matchFound = false;
-      elem.getElements('.UITag').each(function(elem_tag) {
-        this.selected_tags.toArray().each(function(selected_tag) {
-          if (elem_tag.text == selected_tag) {
-            matchFound = true;
-          }
-        }.bind(this));
-      }.bind(this));
-      return !matchFound;
+      var selected_tag_array = Object.keys(this.selected_tags);
+      return !elem.getElements('.UITag').some(function(elem_tag) {
+        return selected_tag_array.some(function(selected_tag) {
+          return elem_tag.text == selected_tag;
+        });
+      });
     }.bind(this));
     new Fx.Multiplex(elementsToMove, {
       duration : EFFECT_DURATION,
       onComplete : function() {
         $$('.UIRightRanked').adopt(elementsToMove);
+        var elementsAtRight =
+            $$('.UIRightRanked')[0].getElements('.UIContent');
+        this.sortContents(elementsAtRight);
         new Fx.Multiplex(elementsToMove, {
-          onComplete : function() {
-            var elementsAtRight =
-                $$('.UIRightRanked')[0].getElements('.UIContent');
-            this.sortContents(elementsAtRight);
-          }.bind(this)
+          duration : EFFECT_DURATION
         }).start({
-          duration : EFFECT_DURATION,
           'opacity' : [0, 1]
         });
       }.bind(this)
@@ -183,7 +143,7 @@ var ContentManager = new Class({
   },
   selectTag : function(tag) {
     var name = tag.text;
-    if (this.selected_tags.contains(name)) {
+    if (name in this.selected_tags) {
       return;
     }
     this.addTagToBar(tag);
@@ -194,14 +154,14 @@ var ContentManager = new Class({
       this.deselectTag(tag);
     }.bind(this));
     this.moveContentToLeft(tag);
-    if (this.selected_tags.empty()) {
+    if (Object.getLength(this.selected_tags) == 0) {
       this.showLeftColumn();
     } 
-    this.selected_tags.add(name);
+    this.selected_tags[name] = true;
   },
   deselectTag : function(tag) {
     var name = tag.text;
-    if (!this.selected_tags.contains(name)) {
+    if (!(name in this.selected_tags)) {
       return;
     }
     var tag_id_class = tag.get('class').split(' ')[1];
@@ -209,14 +169,14 @@ var ContentManager = new Class({
         '.' + tag_id_class).each(function(elem) {
       elem.destroy();
     });
-    this.selected_tags.remove(name);
+    delete this.selected_tags[name];
     $$('.' + tag_id_class).removeClass(
         'selected').removeEvents(
         'click').addEvent('click', function(event) {
       this.selectTag(tag);
       }.bind(this));  
     this.moveContentToRight();
-    if (this.selected_tags.empty()) {
+    if (Object.getLength(this.selected_tags) == 0) {
       this.hideLeftColumn();
     }
   }
