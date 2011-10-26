@@ -35,6 +35,11 @@ var ContentManager = new Class({
     var t = s.split('to');
     return +(new Date(t[t.length-1]));
   },
+  getContentID : function(elem) {
+    var s = elem.get('id');
+    var n = s.split('-')[1];
+    return +n;
+  },
   sortContents : function(elems) {
     var elementSort = new Fx.Sort(elems, {
       duration : EFFECT_DURATION,
@@ -43,7 +48,11 @@ var ContentManager = new Class({
       }
     });
     var sorted = elems.sort(function(e1, e2) {
-      return this.getContentDate(e2) - this.getContentDate(e1);
+      var dt = this.getContentDate(e2) - this.getContentDate(e1);
+      if (dt != 0) {
+        return dt;
+      }
+      return this.getContentID(e2) - this.getContentID(e1);
     }.bind(this));
     elementSort.sortByElements(sorted);
   },
@@ -200,4 +209,5 @@ var ContentHider = new Class({
 window.addEvent('domready', function(event) {
   new ContentManager();
   new ContentHider();
+  $$('a').set('target', '_blank');
 });

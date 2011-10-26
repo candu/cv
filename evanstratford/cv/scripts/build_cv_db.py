@@ -80,6 +80,8 @@ class DatabaseBuilder(object):
   def _visit(self, arg, dirname, names):
     content_dir, parser = arg
     for name in names:
+      if name.endswith('.swp'):
+        continue
       filename = os.path.join(dirname, name)
       logging.info('parsing {0}...'.format(filename))
       parser.parse(content_dir, filename)
