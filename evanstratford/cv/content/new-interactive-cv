@@ -1,8 +1,10 @@
 Interactive CV
 Sep 23, 2011 to now 
-python, xhpy, django, js, css, mootools, html5, cv
+python, xhpy, django, js, css, mootools, html, sf
 
-- Designed and built this online CV using Django, XHPy, mootools, and HTML5
-- Implemented a tag similarity algorithm based upon the Expected Mutual Information Measure
-- Used this algorithm to build a dynamic interface that moves blocks horizontally according to their relevance to user-selected tag filters
+- Designed and built this online CV using Django, XHPy, and mootools
 - Added views optimized for print and mobile media, as well as for browsers lacking JavaScript support
+
+This was mainly a project to familiarize myself with Django and mootools, as well as to try out my XHPy templating framework. If you look through [the commit history](https://github.com/candu/evanstratford/commits/master), you'll see a frantic sequence of experiments like hierarchical tag namespaces, tag similarity metrics, and vertical positioning time scales.
+
+Most of that was subsequently removed. Do I regret trying these things out? Definitely not; they were fantastic for hitting some of the corners and rough spots of my chosen stack. That said, there's a powerful "minimum viable product" argument lurking here...

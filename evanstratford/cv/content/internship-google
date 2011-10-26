@@ -2,5 +2,9 @@ Software Engineering Intern
 May 05, 2008 to Aug 30, 2008
 google, sf, js, c++, gdocs
 
-- Used Javascript cross-domain communication techniques and C++ in a pilot project to optimize AdSense request flow
+- Used Javascript cross-domain communication techniques and C++ in a pilot project to enable client-side batching of AdSense ad unit requests
 - Wrote a Google Spreadsheets widget for generating heightmaps as part of an internal Google Spreadsheets hackathon
+
+This was my first time down to the Bay Area, so I deliberately spent a week bouncing between hostels in downtown San Francisco before starting my internship. I met a variety of curious characters in that week. By far the most curious was this blond-haired drunk who told me he'd spent the last few months at music festivals out in the desert; he then pulled out a newspaper, wrote "Everyone Lies" on it in thick gold marker, and offered me a half-cupful of vodka. The second most curious was a spindly hacker type who spent his evenings blasting original [Pure Data](http://puredata.info/) compositions in the hostel common room.
+
+I knew I'd come to the right place.

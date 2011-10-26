@@ -1,10 +1,12 @@
 XHPy
 Dec 22, 2010 to Feb 01, 2011
-python, xhpy
+python, xhpy, bash, sf
 
-- Ported the open-source XHP project to Python over the course of a month
-- Released this port via github and PyPI
+- Ported the [open-source XHP project](https://github.com/facebook/xhp) to Python over the course of a month
+- Released this port via [github](https://github.com/candu/xhpy) and [PyPI](http://pypi.python.org/pypi/xhpy/0.8)
 
-See the XHP github page for more details on that; in a nutshell, it extends PHP syntax to allow XML document fragments as literals.
+XHPy installs a [PEP 302-style import hook](http://www.python.org/dev/peps/pep-0302/) that uses [Pratt top-down operator precedence](http://javascript.crockford.com/tdop/tdop.html) to define streaming parser-generators; these parser-generators accept and output tokens as defined in [tokenize](http://docs.python.org/library/tokenize.html).
 
-XHPy installs a PEP 302-style import hook that uses Pratt top-down operator precedence to define streaming parser-generators; these parser-generators accept and output tokens as defined in Python's tokenize module. When a module containing XHPy syntax is imported, this import hook acts as a preprocessor, outputting compiled Python bytecode to the appropriate .pyc file. Since this .pyc file is only generated when the source file changes, we incur the performance hit from preprocessing exactly once.
+When a module containing XHPy syntax is imported, this import hook acts as a preprocessor, outputting compiled Python bytecode to the appropriate .pyc file. Since this .pyc file is only generated when the source file changes, we incur the performance hit from preprocessing exactly once.
+
+I originally used parser combinators for parsing. Parser combinators are really cool. They're also not that great in the performance department.

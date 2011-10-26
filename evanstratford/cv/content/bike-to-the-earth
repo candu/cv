@@ -1,12 +1,22 @@
 Bike to the Earth
 May 15, 2010 to Nov 23, 2010
-cycling, js, jquery, couchdb, python, pylons, gmaps, fearlesstost, europe, blog, html4
+cycling, js, jquery, couchdb, python, pylons, gmaps, gps, europe, writing, html, css
 
-- Biked 12 178 km from Copenhagen to Istanbul via Portugal over six months
-- Wrote bi-daily blog posts chronicling the journey
-- Designed, built, and deployed the Bike to the Earth website using CouchDB, Pylons, and jQuery
+- Biked [12 178 km from Copenhagen to Istanbul via Portugal](http://maps.google.com/maps/ms?msid=215589061814516557820.0004951825c48233f648b&msa=0&ll=54.406143,14.567871&spn=3.87573,10.821533) over six months
+- Designed, built, and deployed the [Bike to the Earth website](http://biketotheearth.org) using CouchDB, Pylons, and jQuery
+- Wrote daily blog posts chronicling the journey
 - Wrote proof-of-concept functionality to create daily maps from GPS readings using gpsd, Python, and Google Static Maps API
-- Wrote proof-of-concept functionality to compile videos from frames taken using an inexpensive handlebar-mounted webcam using ffmpeg
-- Tested these out on training rides around Oakville
+- Used ffmpeg to compile [videos](http://www.youtube.com/biketotheearth#p/u/55/-rCmrtmP8yw) from frames taken using an inexpensive handlebar-mounted webcam
 
-When we started the trip, though, we quickly found that our daily ride exceeded the battery life of the laptop. For this reason, these implementations remained proof-of-concept; we'll refine this concept with better hardware next time!
+The GPS tracker and handlebar cam were awesome. They were also utterly impractical on the trip; with the 9-cell battery, our netbook had 6-7 hours of battery life and took 3 hours to charge. Since we often rode 8-10 hours per day, this was a non-starter. With the netbook sandwiched in amongst the rest of our gear, it would also overheat. Showing off our tech gear would make us targets for theft in some areas, and we had no plan for replacing it. Finally, the amount of footage would have exceeded both our capacity to upload it and our desire to organize it.
+
+Most of these problems came from our threadbare budget. We'll up the ante next time we head out on an epic adventure:
+
+- Get separate video and GPS devices so that we're not bounded by laptop battery life.
+- Hook the video device up to a quick on/off button so we can record just the interesting parts.
+- Sync these devices to the laptop and to separate USB sticks at the end of each day.
+- Routinely send those USB sticks back home. (We did this with our photos!)
+- Carry a separate USB stick with our Ubuntu boot disk and any necessary scripts so we can recover from theft.
+- Keep a mobile around with sufficient credit to post quick updates.
+- Maybe look into satellite internet deals. These are expensive, but not prohibitively so, and we could use this for smaller uploads like GPS data and journal entries.
+- Find a solid travel-blogging platform. While it was fun hacking together our own, this was decidedly a spare-time effort.

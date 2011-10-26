@@ -20,10 +20,22 @@
   text-decoration: none;
 }
 
+.UITag:hover {
+  background-color: #ff2;
+  color: #c90;
+  border: 1px solid #ed2;
+}
+
 .UITag.selected {
   background-color: #af7;
   border: 1px solid #8f5;
   color: #491;
+}
+
+.UITag.selected:hover {
+  background-color: #9f0;
+  color: #7a4;
+  border: 1px solid #5f2;
 }
 
 .UITwoColumns {
@@ -83,4 +95,42 @@
 
 .UIContentTags {
   float: right;
+}
+
+.UIContentDescription > p {
+  display: none;
+}
+
+.UIContentMoreLess {
+  color: #36c;
+  background-color: #cdf;
+  border: 1px solid #9cf;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.UIContentMoreLess:hover {
+  background-color: #9cf;
+  border: 1px solid #6af;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #c30;
+  border: 1px solid #f96;
+  background-color: #fc9;
+  padding: 1px;
+}
+
+a:hover {
+  background-color: #f96;
+  border: 1px solid #f63;
+  color: #f00;
+}
+
+li {
+  margin: 2px;
 }

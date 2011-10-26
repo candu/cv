@@ -1,6 +1,8 @@
 CBC Radio 3 Scraper/Downloader
 Mar 01, 2009
-python, music
+python, music, ottawa
 
-- Reverse-engineered the online player at CBC Radio 3 New Music Canada to scrape URLs to MP3s
-- Built Python scripts for listing and downloading filtered sets of MP3s, then used them to download over 2000 songs in the Funk and Electro genres
+- Reverse-engineered the [online player at CBC Radio 3 New Music Canada](http://radio3.cbc.ca/) to scrape URLs to MP3s
+- Built [Python scripts](http://code.google.com/p/evan-stratford-public/source/browse/#svn%2Ftrunk%2Futils%2Fcbc3) for listing and downloading filtered sets of MP3s, then used them to download over 2000 songs in the Funk and Electro genres
+
+I was ecstatic when I returned home to find that my scraper had dutifully fetched all the funk and electro known to CBC Radio 3. I was less ecstatic to find that most of it was utter crap; I turned to [Quod Libet](http://code.google.com/p/quodlibet/), using a plugin that automatically ranked songs based on my listening patterns. This handily sifted out most of said crap.

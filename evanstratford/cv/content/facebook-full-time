@@ -1,11 +1,15 @@
 Software Engineer
 Dec 06, 2010 to now
-facebook, hive, mysql, memcache, js, css, c++, stl, boost, python, sf
+facebook, hive, mysql, memcache, js, css, c++, stl, boost, python, sf, speaking, writing, xhp, php
 
 - Built search for groups content end-to-end, marking the first use of our in-house graph search system for fulltext search
 - Responsible for everything from the indexing pipeline to the realtime update infrastructure to the frontend implementation of design mocks
-- Maintained search for groups content, managing a weekly index push process, building dashboards to monitor for operational issues, and working with the team to resolve any such issues
-- Improved search quality by analyzing query logs, resolving issues with CJK character sets, and indexing text samples associated with media posts
+- Maintained search for groups content by managing a weekly index push process, building dashboards to monitor for operational issues, and working with the team to resolve those issues
+- Improved search quality by analyzing query logs, fixing issues with CJK character sets, and indexing text samples associated with media posts
 - Developed a system to monitor and throttle resource usage spikes across thousands of servers
 - Automated the process for building our 50 TB main graph search index from Hive tables
 - Optimized the site-wide JavaScript-based CSS package loading framework, minimizing expensive setInterval() calls
+
+As you can see, my work at Facebook covers pretty much the whole stack. I learned to wield atop and strace like a rabid sysadmin, optimize terabyte-scale index builds, build reusable UI components, and combine reliable CPU usage statistics across several racks. I work routinely in Python, PHP, C++, and Javascript, and I glue it all together with dollops of bash scripting, SQL (or HQL, when Hive is involved!), and Thrift definitions.
+
+Parallel to this, I'm actively developing those pesky soft skills. I'm a member of Move Fast and Say Things, our company-wide Toastmasters chapter, and just last week delivered my fifth speech out of the Competent Communicator manual. I've been on two recruiting trips to the University of Waterloo, and am in the process of completing my interviewer training. I've given presentations on various parts of Facebook's infrastructure to prospective engineering candidates.

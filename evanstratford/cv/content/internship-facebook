@@ -1,7 +1,9 @@
 Software Engineering Intern
 Sep 01, 2009 to Dec 23, 2009
-facebook, c++, bash, hive, memcache, ruby
+facebook, c++, bash, hive, memcache, ruby, sf, php, ml
 
 - Developed a real-time spam detection system capable of handling millions of user messages per second
 - Tested and deployed an internal Thrift service for QR code generation, using my own port of rQRCode to C++
 - Used gprof to help profile and optimize a generalized spam classification framework, reducing CPU load by 15%
+
+I worked on the Site Integrity team, which was tasked with the mission of preventing spam and fraud in all their forms. Those forms are many. Some are ugly, malicious, and evil. Others are bizarre. Most are both.

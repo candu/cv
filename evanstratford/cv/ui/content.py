@@ -57,4 +57,7 @@ class :ui:content(:x:element):
           {content.description}
         </text>
       </div>
+      <div class="UIContentMoreLess">
+        Show more...
+      </div>
     </div>

@@ -4,3 +4,7 @@ uw, c++, xpcom, xul, waterloo, toronto
 
 - Participated in a unique open-source projects course offered in collaboration with several universities worldwide
 - Worked to improve vCard import, export, and parsing in Mozilla Thunderbird
+
+The pace of Thunderbird development is excruciatingly slow. I still receive comments on bugs that I attached diffs to, and most of them are of the "hey, this bug over here is a duplicate of this one" variety. This might be a side-effect of their C-ish implementation, which relies on a byzantine mess of error code checking and custom string types.
+
+Those students working on Mercurial reported that they had a fantastic time. YMMV.
