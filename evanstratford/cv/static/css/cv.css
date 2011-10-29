@@ -82,13 +82,13 @@
 }
 
 .UILeftRanked > .UIContent {
-  background-color: #cf9;
+  background-color: #d7ffa7;
   border: 1px solid #bf8;
   color: #350;
 }
 
 .UIRightRanked > .UIContent {
-  background-color: #ddd;
+  background-color: #f7f7f7;
   border: 1px solid #ccc;
   color: #444;
 }
