@@ -1,3 +1,8 @@
+(function(window, undefined) {
+
+var History = window.History;
+
+
 Fx.Multiplex = new Class({
   initialize : function(elements, options) {
     this.elements = elements;
@@ -17,9 +22,29 @@ var EFFECT_DURATION = 200;
 
 var ContentManager = new Class({
   initialize : function() {
-    this.selected_tags = {};
+    this.selected_tags = [];
     $$('.UITag').addEvent('click', function(event) {
       this.selectTag(event.target);
+    }.bind(this));
+
+    if (!History.enabled) {
+      throw 'History not enabled in this browser';
+    }
+    History.Adapter.bind(window, 'statechange', function() {
+      var state = History.getState();
+      var added_tags = state.data.tags.filter(function(name) {
+        return !this.selected_tags.contains(name);
+      }.bind(this));
+      var removed_tags = this.selected_tags.filter(function(name) {
+        return !state.data.tags.contains(name);
+      });
+      this.selected_tags = state.data.tags;
+      added_tags.each(function(name) {
+        this.addTag(this.getTagByName(name));
+      }.bind(this));
+      removed_tags.each(function(name) {
+        this.removeTag(this.getTagByName(name));
+      }.bind(this));
     }.bind(this));
   },
   addTagToBar : function(tag) {
@@ -86,12 +111,11 @@ var ContentManager = new Class({
     var elementsAtLeft =
         $$('.UILeftRanked')[0].getElements('.UIContent');
     var elementsToMove = elementsAtLeft.filter(function(elem) {
-      var selected_tag_array = Object.keys(this.selected_tags);
       return !elem.getElements('.UITag').some(function(elem_tag) {
-        return selected_tag_array.some(function(selected_tag) {
+        return this.selected_tags.some(function(selected_tag) {
           return elem_tag.text == selected_tag;
         });
-      });
+      }.bind(this));
     }.bind(this));
     new Fx.Multiplex(elementsToMove, {
       duration : EFFECT_DURATION,
@@ -150,11 +174,11 @@ var ContentManager = new Class({
       'width' : [50, 0]
     });
   },
-  selectTag : function(tag) {
-    var name = tag.text;
-    if (name in this.selected_tags) {
-      return;
-    }
+  getTagByName : function(name) {
+    var tag = $(document).getElement('.UITag:contains("' + name + '")');
+    return tag;
+  },
+  addTag : function(tag) {
     this.addTagToBar(tag);
     var tag_id_class = tag.get('class').split(' ')[1];
     $$('.' + tag_id_class).addClass(
@@ -163,31 +187,46 @@ var ContentManager = new Class({
       this.deselectTag(tag);
     }.bind(this));
     this.moveContentToLeft(tag);
-    if (Object.getLength(this.selected_tags) == 0) {
+    if (this.selected_tags.length > 0) {
       this.showLeftColumn();
     } 
-    this.selected_tags[name] = true;
   },
-  deselectTag : function(tag) {
-    var name = tag.text;
-    if (!(name in this.selected_tags)) {
-      return;
-    }
+  removeTag : function(tag) {
     var tag_id_class = tag.get('class').split(' ')[1];
     $$('.UIControlsHeader').getChildren(
         '.' + tag_id_class).each(function(elem) {
       elem.destroy();
     });
-    delete this.selected_tags[name];
     $$('.' + tag_id_class).removeClass(
         'selected').removeEvents(
         'click').addEvent('click', function(event) {
       this.selectTag(tag);
       }.bind(this));  
     this.moveContentToRight();
-    if (Object.getLength(this.selected_tags) == 0) {
+    if (this.selected_tags.length == 0) {
       this.hideLeftColumn();
     }
+  },
+  pushState : function(new_tags) {
+    History.pushState({ tags : new_tags }, '', '/' + new_tags.join('/'));
+  },
+  selectTag : function(tag) {
+    var name = tag.text;
+    if (this.selected_tags.contains(name)) {
+      return;
+    }
+    var new_tags = Array.clone(this.selected_tags);
+    new_tags.push(name);
+    this.pushState(new_tags);
+  },
+  deselectTag : function(tag) {
+    var name = tag.text;
+    if (!this.selected_tags.contains(name)) {
+      return;
+    }
+    var new_tags = Array.clone(this.selected_tags);
+    new_tags.erase(name);
+    this.pushState(new_tags);
   }
 });
 
@@ -211,3 +250,5 @@ window.addEvent('domready', function(event) {
   new ContentHider();
   $$('a').set('target', '_blank');
 });
+
+})(window);
