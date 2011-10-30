@@ -6,4 +6,5 @@ class :ui:tag(:x:element):
   def render(self):
     tag = self.getAttribute('tag')
     tag_id = 'tag-{0}'.format(tag.id)
-    return <a class={'UITag {0}'.format(tag_id)} title={tag.title}>{tag.name}</a>
+    tag_class = 'UITag {0}'.format(tag_id)
+    return <a class={tag_class} title={tag.title}>{tag.name}</a>

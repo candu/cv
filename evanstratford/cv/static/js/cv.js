@@ -22,14 +22,16 @@ var EFFECT_DURATION = 200;
 
 var ContentManager = new Class({
   initialize : function() {
+    if (!History.enabled) {
+      throw 'History not enabled in this browser';
+    }
+
     this.selected_tags = [];
+
     $$('.UITag').addEvent('click', function(event) {
       this.selectTag(event.target);
     }.bind(this));
 
-    if (!History.enabled) {
-      throw 'History not enabled in this browser';
-    }
     History.Adapter.bind(window, 'statechange', function() {
       var state = History.getState();
       var added_tags = state.data.tags.filter(function(name) {
@@ -46,6 +48,22 @@ var ContentManager = new Class({
         this.removeTag(this.getTagByName(name));
       }.bind(this));
     }.bind(this));
+
+    var path = document.location.pathname;
+    var path_tags = path.substr(1).split('/');
+    console.log(path_tags);
+    for (var i = 0; i < path_tags.length; i++) {
+      var name = path_tags[i];
+      var tag = this.getTagByName(name);
+      console.log(tag);
+      if (tag == null) {
+        continue;
+      }
+      if (!this.selected_tags.contains(name)) {
+        this.selected_tags.push(name);
+      }
+      this.addTag(tag);
+    }
   },
   addTagToBar : function(tag) {
     var name = tag.text;
