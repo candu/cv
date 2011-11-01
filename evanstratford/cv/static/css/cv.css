@@ -4,7 +4,6 @@
 
 #container {
   min-width: 800px;
-  position: relative;
 }
 
 .UITag {
@@ -33,7 +32,7 @@
 }
 
 .UITag.selected:hover {
-  background-color: #9f0;
+  background-color: #10f0;
   color: #7a4;
   border: 1px solid #5f2;
 }
@@ -133,4 +132,8 @@ a:hover {
 
 li {
   margin: 2px;
+}
+
+.UIPrintHeader {
+  display: none;
 }

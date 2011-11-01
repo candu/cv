@@ -19,14 +19,24 @@ def index(request, tag_spec):
   contents = sorted(
       Content.objects.all(), key=lambda c: c.finished, reverse=True)
   controls = <div class="UIControlsHeader" />
+  print_header = \
+  <div class="UIPrintHeader">
+    <div class="UIPrintName">Evan Stratford</div>
+    <div class="UIPrintCoordinates">
+      evan.stratford<span class="grey">@gmail.com</span>
+    </div>
+  </div>
   left_ranked = <div class="UILeftRanked" />
   right_ranked = <div class="UIRightRanked" />
   for c in contents:
     right_ranked.appendChild(<ui:content content={c} />)
   page = \
   <ui:page title="Evan Stratford :: CV">
-    <ui:two-columns>
+    <div class="UIHeader">
       {controls}
+      {print_header}
+    </div>
+    <ui:two-columns>
       {left_ranked}
       {right_ranked}
     </ui:two-columns>

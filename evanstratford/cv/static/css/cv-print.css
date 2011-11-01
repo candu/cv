@@ -1,0 +1,69 @@
+#container {
+  width: 100%;
+  font-family: serif;
+}
+
+.UIContentTags {
+  display: none;
+}
+
+.UIContentMoreLess {
+  display: none;
+}
+
+.UIContentDescription > p {
+  display: none;
+}
+
+.UIControlsHeader {
+  display: none;
+}
+
+.UIPrintHeader {
+  display: block;
+  width: 100%;
+  clear: both;
+  text-align: center;
+  font-weight: 500;
+}
+
+.UIHeader {
+  padding-bottom: 5px;
+}
+
+.UIContent {
+  padding-top: 5px;
+  border-top: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.UIPrintName {
+  font-size: 24px;
+}
+
+.grey {
+  color: #999;
+}
+
+.UIColumn.right {
+  display: none;
+  width: 0%;
+}
+
+.UIColumn.left {
+  width: auto !important;
+}
+
+.UIContentTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.UIContentDate {
+  font-size: 11px;
+}
+
+.UIContentDescription {
+  font-size: 13px;
+}
