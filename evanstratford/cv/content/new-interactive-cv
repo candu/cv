@@ -1,8 +1,9 @@
 Interactive CV
 Sep 23, 2011 to now 
+Personal Project
 python, xhpy, django, js, css, mootools, html, sf
 
-- Designed and built this online CV using Django, XHPy, and mootools
+- Designed and built [my online CV](http://cv.evanstratford.com) using Django, XHPy, and mootools
 - Added views optimized for print and mobile media, as well as for browsers lacking JavaScript support
 
 This was mainly a project to familiarize myself with Django and mootools, as well as to try out my XHPy templating framework. If you look through [the commit history](https://github.com/candu/evanstratford/commits/master), you'll see a frantic sequence of experiments like hierarchical tag namespaces, tag similarity metrics, and vertical positioning time scales.

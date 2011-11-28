@@ -60,6 +60,7 @@ class Content(BaseModel):
   tags = models.ManyToManyField(Tag)
   filename = models.CharField(max_length=255)
   title = models.CharField(max_length=255)
+  org = models.CharField(max_length=255)
   description = models.TextField()
   started = models.DateField(null=True, blank=True)
   finished = models.DateField()

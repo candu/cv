@@ -1,5 +1,6 @@
 CBC Radio 3 Scraper/Downloader
 Mar 01, 2009
+Personal Project
 python, music, ottawa
 
 - Reverse-engineered the [online player at CBC Radio 3 New Music Canada](http://radio3.cbc.ca/) to scrape URLs to MP3s

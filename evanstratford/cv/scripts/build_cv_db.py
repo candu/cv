@@ -50,6 +50,7 @@ class ContentParser(object):
           finished = datetime_to_date(datetime.datetime.now())
         else:
           finished = datetime_to_date(dateutil.parser.parse(dates[1]))
+      org = f.readline().strip()
       names = [name.strip() for name in f.readline().split(',')]
       tags = []
       for name in names:
@@ -60,6 +61,7 @@ class ContentParser(object):
     filename_relative = os.path.relpath(filename, content_dir)
     content = Content.get_or_new(filename=filename_relative)
     content.title = title
+    content.org = org
     content.description = description
     content.started = started
     content.finished = finished

@@ -48,6 +48,9 @@ class :ui:content(:x:element):
         <div class="UIContentTitle">
           {content.title}
         </div>
+        <div class="UIContentOrg">
+          {content.org}
+        </div>
         <div class="UIContentDate">
           {content_date}
         </div>
