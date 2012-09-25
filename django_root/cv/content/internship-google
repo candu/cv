@@ -3,7 +3,8 @@ title: Software Engineering Intern
 from: May 05, 2008
 to: Aug 30, 2008
 org: Google, Inc.
-tags: [google, sf, js, c++, gdocs]
+tags: [JavaScript, C++]
+location: Mountain View, CA, USA
 ---
 
 - Used Javascript cross-domain communication techniques and C++ in a pilot project to enable client-side batching of AdSense ad unit requests

@@ -3,7 +3,8 @@ title: Software Engineering Intern
 from: Sep 01, 2009
 to: Dec 23, 2009
 org: Facebook, Inc.
-tags: [facebook, c++, bash, hive, memcache, ruby, sf, php, ml]
+tags: [C++, bash, PHP, Machine Learning, Real-Time Computing, Web Development]
+location: Palo Alto, CA, USA
 ---
 
 - Developed a real-time spam detection system capable of handling millions of user messages per second
