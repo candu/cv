@@ -16,5 +16,3 @@ location: Menlo Park, CA, USA
 - Optimized the site-wide JavaScript-based CSS package loading framework, minimizing expensive setInterval() calls
 
 As you can see, my work at Facebook covers pretty much the whole stack. I learned to wield atop and strace like a rabid sysadmin, optimize terabyte-scale index builds, build reusable UI components, and combine reliable CPU usage statistics across several racks. I work routinely in Python, PHP, C++, and Javascript, and I glue it all together with dollops of bash scripting, SQL (or HQL, when Hive is involved!), and Thrift definitions.
-
-Parallel to this, I'm actively developing those pesky soft skills. I'm a member of Move Fast and Say Things, our company-wide Toastmasters chapter, and just last week delivered my fifth speech out of the Competent Communicator manual. I've been on two recruiting trips to the University of Waterloo, and am in the process of completing my interviewer training. I've given presentations on various parts of Facebook's infrastructure to prospective engineering candidates.

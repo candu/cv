@@ -12,5 +12,3 @@ location: Waterloo, ON, Canada
 - Replaced hardcoded screen locations with computed values and calls to the Windows API, improving cross-machine reproducibility
 
 This XPCOM bridge deserves its place in the annals of gloriously terrible hacks. I created a Javascript XPCOM component for sending data to a DLL built by another member of the team, enabling us to pass browser state to Rational Robot.
-
-I'm not sure how Rational Robot seemed like a good investment for testing a strongly browser-based product. For all its genius in compression techniques and data structures, Slipstream utterly lacked an understanding of frontend development. Not that it matters; they were acquired by RIM halfway through my internship, which meant that I had a shiny BlackBerry to play around with for about 1.5 months.
