@@ -18,12 +18,11 @@ def index(request, tag_spec):
   tags = Tag.objects.all()
   contents = sorted(
       Content.objects.all(), key=lambda c: c.finished, reverse=True)
-  controls = <div class="UIControlsHeader" />
   print_header = \
   <div class="UIPrintHeader">
-    <div class="UIPrintName">Evan Stratford</div>
+    <div class="UIPrintName">Evan Savage</div>
     <div class="UIPrintCoordinates">
-      evan.stratford<span class="grey">@gmail.com</span>
+      savage.evan<span class="grey">@gmail.com</span>
     </div>
   </div>
   left_ranked = <div class="UILeftRanked" />
@@ -33,7 +32,6 @@ def index(request, tag_spec):
   page = \
   <ui:page title="Evan Stratford :: CV">
     <div class="UIHeader">
-      {controls}
       {print_header}
     </div>
     <ui:two-columns>

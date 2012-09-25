@@ -60,11 +60,6 @@
   width: 100%;
 }
 
-.UIHeader {
-  border-bottom: 1px solid #ccc;
-  height: 22px;
-}
-
 .UIContent {
   padding: 2px;
   margin: 2px;

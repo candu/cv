@@ -64,14 +64,6 @@ var ContentManager = new Class({
       this.addTag(tag);
     }
   },
-  addTagToBar : function(tag) {
-    var name = tag.text;
-    $$('.UIControlsHeader').grab(
-        tag.clone().fade('hide').fade('in').addEvent(
-        'click', function(event) {
-      this.deselectTag(event.target);
-    }.bind(this)));
-  },
   getContentDate : function(elem) {
     var s = elem.getElement('.UIContentDate').get('text');
     var t = s.split('to');
@@ -196,7 +188,6 @@ var ContentManager = new Class({
     return tag;
   },
   addTag : function(tag) {
-    this.addTagToBar(tag);
     var tag_id_class = tag.get('class').split(' ')[1];
     $$('.' + tag_id_class).addClass(
         'selected').removeEvents(
@@ -210,10 +201,6 @@ var ContentManager = new Class({
   },
   removeTag : function(tag) {
     var tag_id_class = tag.get('class').split(' ')[1];
-    $$('.UIControlsHeader').getChildren(
-        '.' + tag_id_class).each(function(elem) {
-      elem.destroy();
-    });
     $$('.' + tag_id_class).removeClass(
         'selected').removeEvents(
         'click').addEvent('click', function(event) {
