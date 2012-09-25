@@ -96,10 +96,6 @@
   float: right;
 }
 
-.UIContentDescription > p {
-  display: none;
-}
-
 .UIContentMoreLess {
   color: #36c;
   background-color: #cdf;

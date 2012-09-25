@@ -247,24 +247,8 @@ var ContentManager = new Class({
   }
 });
 
-var ContentHider = new Class({
-  initialize : function() {
-    $$('.UIContentMoreLess').addEvent('click', function(event) {
-      var description = event.target.getSiblings('.UIContentDescription')[0];
-      if (event.target.get('text') == 'Show more...') {
-        description.getChildren('p').reveal();
-        event.target.set('text', 'Show less');
-      } else {
-        description.getChildren('p').dissolve();
-        event.target.set('text', 'Show more...');
-      }
-    });
-  }
-});
-
 window.addEvent('domready', function(event) {
   new ContentManager();
-  new ContentHider();
   $$('a').set('target', '_blank');
 });
 
