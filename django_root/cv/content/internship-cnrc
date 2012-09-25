@@ -1,7 +1,10 @@
-Research Intern
-Jan 01, 2009 to Apr 30, 2009
-Canadian National Research Council
-cnrc, c++, stl, openmp, bash, ottawa, ml
+---
+title: Research Intern
+from: Jan 01, 2009
+to: Apr 30, 2009
+org: Canadian National Research Council
+tags: [cnrc, c++, stl, openmp, bash, ottawa, ml]
+---
 
 - Designed and implemented a module to cluster similar phrases, then scaled it to handle the 2008 GALE Chinese-English corpus
 - Implemented bilingual sentence segmentation within PORTAGE, reducing HMM alignment model training time by 80-90%

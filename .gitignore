@@ -1,3 +1,4 @@
 *.pyc
 .*.swp
 django_root/settings.py
+django_root/db.sql3

@@ -1,7 +1,11 @@
-project: electronic
-Apr 15, 2003 to Jun 25, 2004
-University of Toronto Schools
-uts, music, toronto
+---
+title: "project: electronic"
+from: Apr 15, 2003
+to: Jun 25, 2004
+org: University of Toronto Schools
+tags: [music]
+location: Toronto, ON, Canada
+---
 
 - Learned the use of MIDI sequencing and multitrack compositional software, recording 12 tracks over my senior year of secondary school
 - Led small software and recording workshops for younger students

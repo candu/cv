@@ -37,10 +37,16 @@ class :ui:content(:x:element):
     for tag in sorted(content.tags.all(), key=lambda t: t.name):
       content_tags.appendChild(<ui:tag tag={tag} />)
     content_date = content.finished.strftime(self.DATE_FORMAT)
-    if content.started is not None:
+    if content.started != content.finished:
       content_date = '{0} to {1}'.format(
           content.started.strftime(self.DATE_FORMAT),
           content_date)
+    content_org = None
+    if content.org:
+      content_org = \
+      <div class="UIContentOrg">
+        {content.org}
+      </div>
     return \
     <div class="UIContent" id={content_id}>
       <div class="UIContentHeader">
@@ -48,9 +54,7 @@ class :ui:content(:x:element):
         <div class="UIContentTitle">
           {content.title}
         </div>
-        <div class="UIContentOrg">
-          {content.org}
-        </div>
+        {content_org}
         <div class="UIContentDate">
           {content_date}
         </div>

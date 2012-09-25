@@ -1,7 +1,11 @@
-Software Engineer
-Dec 06, 2010 to now
-Facebook, Inc.
-facebook, hive, mysql, memcache, js, css, c++, stl, boost, python, sf, writing, xhp, php
+---
+title: Software Engineer
+from: Dec 06, 2010
+to: Sep 28, 2012 
+org: Facebook, Inc.
+tags: [hive, mysql, memcache, js, css, c++, stl, boost, python, writing, xhp, php]
+location: Menlo Park, CA, USA
+---
 
 - Built search for groups content end-to-end, marking the first use of our in-house graph search system for fulltext search
 - Responsible for everything from the indexing pipeline to the realtime update infrastructure to the frontend implementation of design mocks

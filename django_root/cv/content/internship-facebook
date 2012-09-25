@@ -1,7 +1,10 @@
-Software Engineering Intern
-Sep 01, 2009 to Dec 23, 2009
-Facebook, Inc.
-facebook, c++, bash, hive, memcache, ruby, sf, php, ml
+---
+title: Software Engineering Intern
+from: Sep 01, 2009
+to: Dec 23, 2009
+org: Facebook, Inc.
+tags: [facebook, c++, bash, hive, memcache, ruby, sf, php, ml]
+---
 
 - Developed a real-time spam detection system capable of handling millions of user messages per second
 - Tested and deployed an internal Thrift service for QR code generation, using my own port of rQRCode to C++

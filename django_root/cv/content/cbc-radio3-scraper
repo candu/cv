@@ -1,7 +1,11 @@
-CBC Radio 3 Scraper/Downloader
-Mar 01, 2009
-Personal Project
-python, music, ottawa
+---
+title: CBC Radio 3 Scraper/Downloader
+from: Apr 03, 2009
+to: Apr 03, 2009
+org: Personal Project
+tags: [python, music]
+location: Gatineau, QC, Canada
+---
 
 - Reverse-engineered the [online player at CBC Radio 3 New Music Canada](http://radio3.cbc.ca/) to scrape URLs to MP3s
 - Built [Python scripts](http://code.google.com/p/evan-stratford-public/source/browse/#svn%2Ftrunk%2Futils%2Fcbc3) for listing and downloading filtered sets of MP3s, then used them to download over 2000 songs in the Funk and Electro genres

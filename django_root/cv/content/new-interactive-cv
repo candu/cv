@@ -1,7 +1,10 @@
-Interactive CV
-Sep 23, 2011 to now 
-Personal Project
-python, xhpy, django, js, css, mootools, html, sf
+---
+title: Interactive CV
+from: Sep 23, 2011
+to: present
+tags: [python, xhpy, django, js, css, mootools, html]
+location: San Francisco, CA, USA
+---
 
 - Designed and built [my online CV](http://cv.evanstratford.com) using Django, XHPy, and mootools
 - Added views optimized for print and mobile media, as well as for browsers lacking JavaScript support

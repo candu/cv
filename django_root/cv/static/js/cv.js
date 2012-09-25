@@ -2,7 +2,6 @@
 
 var History = window.History;
 
-
 Fx.Multiplex = new Class({
   initialize : function(elements, options) {
     this.elements = elements;

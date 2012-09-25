@@ -1,7 +1,10 @@
-XHPy
-Dec 22, 2010 to Feb 01, 2011
-Personal Project
-python, xhpy, bash, sf
+---
+title: XHPy
+from: Dec 22, 2010
+to: Feb 01, 2011
+tags: [python, xhpy, bash]
+location: San Francisco, CA, USA
+---
 
 - Ported the [open-source XHP project](https://github.com/facebook/xhp) to Python over the course of a month
 - Released this port via [github](https://github.com/candu/xhpy) and [PyPI](http://pypi.python.org/pypi/xhpy/0.8)

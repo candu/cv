@@ -1,7 +1,10 @@
-Bike to the Earth
-May 15, 2010 to Nov 23, 2010
-Personal Project
-cycling, js, jquery, couchdb, python, pylons, gmaps, gps, europe, writing, html, css
+---
+title: Post-Graduation Bike Trip
+from: May 15, 2010
+to: Nov 23, 2010
+tags: [cycling, js, jquery, couchdb, python, pylons, gmaps, gps, writing, html, css]
+location: Europe
+---
 
 - Biked [12 178 km from Copenhagen to Istanbul via Portugal](http://maps.google.com/maps/ms?msid=215589061814516557820.0004951825c48233f648b&msa=0&ll=54.406143,14.567871&spn=3.87573,10.821533) over six months
 - Designed, built, and deployed the [Bike to the Earth website](http://biketotheearth.org) using CouchDB, Pylons, and jQuery

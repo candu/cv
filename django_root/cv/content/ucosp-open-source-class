@@ -1,7 +1,11 @@
-UCOSP
-Jan 01, 2010 to Apr 30, 2010
-University of Waterloo
-uw, c++, xpcom, xul, waterloo, toronto
+---
+title: UCOSP
+from: Jan 01, 2010
+to: Apr 30, 2010
+org: University of Waterloo
+tags: [c, c++, xpcom, xul]
+location: Waterloo, ON, Canada
+---
 
 - Participated in a unique open-source projects course offered in collaboration with several universities worldwide
 - Worked to improve vCard import, export, and parsing in Mozilla Thunderbird

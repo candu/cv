@@ -4,14 +4,8 @@ build_cv_db.py
 Usage:
   build_cv_db.py <content_dir>
 
-Looks through <content_dir> for files containing content data. The file
-format is:
-
-<title>
-[<started> to ]<finished>
-<tag>, ...
-
-<description>
+Looks through <content_dir> for files containing content data. This uses a
+Jekyll-style YAML-front-matter-plus-Markdown approach.
 """
 
 import datetime
@@ -20,6 +14,7 @@ import logging
 import markdown
 import os.path
 import sys
+import yaml
 
 from cv.lib.text_tagger import TextTagger
 from cv.models import Content, Tag
@@ -28,6 +23,9 @@ USAGE_MSG = __doc__
 
 logging.basicConfig(level=logging.INFO)
 
+def string_to_date(s):
+  return datetime_to_date(dateutil.parser.parse(s))
+
 def datetime_to_date(dt):
   return datetime.date(dt.year, dt.month, dt.day)
 
@@ -35,36 +33,52 @@ class ContentParserException(Exception):
   pass
 
 class ContentParser(object):
+  def _readFrontMatter(self, f):
+    line = f.readline()
+    if not line.startswith('---'):
+      raise ContentParserException('Expected front matter begin')
+    front_matter = []
+    while True:
+      line = f.readline()
+      if not line:
+        raise ContentParserException('Expected front matter end')
+      if line.startswith('---'):
+        break
+      front_matter.append(line)
+    return yaml.load(''.join(front_matter))
+
+  def _readDescription(self, f):
+    return markdown.markdown(f.read())
+
+  def _getDates(self, front_matter):
+    from_str = front_matter.get('from')
+    if not from_str:
+      raise ContentParserException('Expected (from, to) dates')
+    to_str = front_matter.get('to')
+    if not to_str:
+      raise ContentParserException('Expected (from, to) dates')
+    started = string_to_date(from_str)
+    if to_str in ['now', 'current', 'present']:
+      finished = datetime_to_date(datetime.datetime.now())
+    else:
+      finished = string_to_date(to_str)
+    return (started, finished)
+
   def parse(self, content_dir, filename):
     with open(filename) as f:
-      title = f.readline().strip()
-      dates = [date.strip() for date in f.readline().split('to')]
-      if len(dates) == 0:
-        raise ContentParserException('No dates specified')
-      if len(dates) == 1:
-        started = None
-        finished = datetime_to_date(dateutil.parser.parse(dates[0]))
-      else:
-        started = datetime_to_date(dateutil.parser.parse(dates[0]))
-        if dates[1] == 'now':
-          finished = datetime_to_date(datetime.datetime.now())
-        else:
-          finished = datetime_to_date(dateutil.parser.parse(dates[1]))
-      org = f.readline().strip()
-      names = [name.strip() for name in f.readline().split(',')]
-      tags = []
-      for name in names:
-        tag, created = Tag.objects.get_or_create(name=name)
-        tags.append(tag)
-      description = markdown.markdown(f.read())
+      front_matter = self._readFrontMatter(f)
+      description = self._readDescription(f)
 
     filename_relative = os.path.relpath(filename, content_dir)
     content = Content.get_or_new(filename=filename_relative)
-    content.title = title
-    content.org = org
+    content.title = front_matter['title']
+    content.started, content.finished = self._getDates(front_matter)
+    content.org = front_matter.get('org', '')
+    tags = []
+    for tag_name in front_matter['tags']:
+      tag, created = Tag.objects.get_or_create(name=tag_name)
+      tags.append(tag)
     content.description = description
-    content.started = started
-    content.finished = finished
     content.save()
 
     for tag in tags:
@@ -86,7 +100,11 @@ class DatabaseBuilder(object):
         continue
       filename = os.path.join(dirname, name)
       logging.info('parsing {0}...'.format(filename))
-      parser.parse(content_dir, filename)
+      try:
+        parser.parse(content_dir, filename)
+      except ContentParserException, e:
+        logging.info('skipped {0} due to parsing error: {1}'.format(
+          filename, e))
 
 if __name__ == '__main__':
   def usage(msg):

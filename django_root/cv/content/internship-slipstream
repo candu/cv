@@ -1,7 +1,11 @@
-Quality Assurance Co-op
-May 01, 2006 to Aug 30, 2006
-Slipstream, Inc.
-slipstream, waterloo, win32, vb, js, xpcom
+---
+title: Quality Assurance Co-op
+from: May 01, 2006
+to: Aug 30, 2006
+org: Slipstream, Inc.
+tags: [win32, vb, js, xpcom]
+location: Waterloo, ON, Canada
+---
 
 - Worked with the QA team to develop an XPCOM extension bridge between Mozilla Firefox and IBM Rational Robot
 - Achieved 70% automation of manual testing procedures
