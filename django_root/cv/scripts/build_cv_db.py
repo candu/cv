@@ -8,6 +8,7 @@ Looks through <content_dir> for files containing content data. This uses a
 Jekyll-style YAML-front-matter-plus-Markdown approach.
 """
 
+import codecs
 import datetime
 import dateutil.parser
 import logging
@@ -16,7 +17,6 @@ import os.path
 import sys
 import yaml
 
-from cv.lib.text_tagger import TextTagger
 from cv.models import Content, Tag
 
 USAGE_MSG = __doc__
@@ -48,7 +48,15 @@ class ContentParser(object):
     return yaml.load(''.join(front_matter))
 
   def _readDescription(self, f):
-    return markdown.markdown(f.read())
+    # HACK: something about codecs.open() isn't playing nicely with f.read(),
+    # so I concat lines here instead.
+    description = []
+    line = f.readline()
+    while line:
+      description.append(line)
+      line = f.readline()
+    description = ''.join(description)
+    return markdown.markdown(''.join(description))
 
   def _getDates(self, front_matter):
     from_str = front_matter.get('from')
@@ -65,7 +73,7 @@ class ContentParser(object):
     return (started, finished)
 
   def parse(self, content_dir, filename):
-    with open(filename) as f:
+    with codecs.open(filename, mode='r', encoding='utf-8') as f:
       front_matter = self._readFrontMatter(f)
       description = self._readDescription(f)
 
