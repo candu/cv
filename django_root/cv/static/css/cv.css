@@ -138,16 +138,16 @@
 a {
   text-decoration: none;
   font-weight: 500;
-  color: #c30;
-  border: 1px solid #f96;
-  background-color: #fc9;
+  color: #36f;
+  border: 1px solid #9af;
+  background-color: #ace;
   padding: 1px;
 }
 
 a:hover {
-  background-color: #f96;
-  border: 1px solid #f63;
-  color: #f00;
+  background-color: #79e;
+  border: 1px solid #68f;
+  color: #00f;
 }
 
 li {
