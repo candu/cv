@@ -37,50 +37,15 @@
 }
 
 .UIBanner {
-  color: #333;
-  width: 100%;
-  clear: both;
   background-color: #eee;
-  border-bottom: 2px solid #ccc;
 }
 
 .UIName {
-  font-size: 240%;
-  text-align: center;
-  padding: 8px 0;
   background-color: #ccc;
 }
-
+  
 .UISegments {
-  padding-top: 16px;
-  width: 100%;
   background-color: #ddd;
-}
-
-.UISegments > .segment {
-  width: 50%;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.UISegments > .segment > .title {
-  font-size: 180%;
-  padding-bottom: 8px;
-  text-align: center;
-}
-
-.UISegments > .segment > .description {
-  margin: 8px;
-  font-size: 150%;
-}
-
-.UICoordIcon {
-  padding-right: 8px;
-}
-
-.UICoordText {
-  position: relative;
-  bottom: 7px;
 }
 
 .UITagBlock {
@@ -109,14 +74,8 @@
   vertical-align: top;
 }
 
-.UIContent {
-  padding: 4px;
-  margin: 4px;
-}
-
-.UIContentTitle {
-  font-weight: 500;
-  margin-bottom: 2px;
+.UIContentTags {
+  float: right;
 }
 
 .UITopRanked > .UIContent {
@@ -129,27 +88,4 @@
   background-color: #f7f7f7;
   border: 1px solid #ccc;
   color: #444;
-}
-
-.UIContentTags {
-  float: right;
-}
-
-a {
-  text-decoration: none;
-  font-weight: 500;
-  color: #36f;
-  border: 1px solid #9af;
-  background-color: #ace;
-  padding: 1px;
-}
-
-a:hover {
-  background-color: #79e;
-  border: 1px solid #68f;
-  color: #00f;
-}
-
-li {
-  margin: 2px;
 }

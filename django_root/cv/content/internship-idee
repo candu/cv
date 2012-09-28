@@ -8,12 +8,12 @@ location: Toronto, ON, Canada
 ---
 
 - Developed an application in C++ to compare the performance of high-dimensional Approximate Nearest Neighbor algorithms
-- Helped build and release [Id&eacute;e Labs](http://labs.ideeinc.com/), a Pylons-based web application featuring visual search across millions of images
+- Helped build and release [Idée Labs](http://labs.ideeinc.com/), a Pylons-based web application featuring visual search across millions of images
 - Learned Python in a day, then used it to build database migration scripts
 - Used Python and Amazon APIs to build a distributed parallel tool for downloading millions of book covers
 - Implemented requested fixes and improvements for the PHP-based internal operator interface
 - Researched methods for matching images against user sketches, implementing a prototype algorithm based on curve extraction and normalized Hausdorff distance
 
-My first term at Id&eacute; marked the only time I've ever been able to walk to work. If you're familiar with Toronto, you'll know that the route [from Church and Gerrard to Queen and Sherbourne](http://maps.google.com/maps?saddr=church+and+gerrard,+toronto&daddr=idee+inc,+toronto&hl=en&sll=43.656515,-79.37428&sspn=0.009113,0.01133&geocode=FVMymgIds8dE-yndC7_uSsvUiTE_LO-7bn8IkA%3BFZYcmgId7OhE-yEpUQX9E9cY8CmN2dpuN8vUiTGou-CB-n4Rdw&vpsrc=0&dirflg=w&mra=ltm&t=h&z=16) is interesting to say the least.
+My first term at Idée marked the only time I've ever been able to walk to work. If you're familiar with Toronto, you'll know that the route [from Church and Gerrard to Queen and Sherbourne](http://maps.google.com/maps?saddr=church+and+gerrard,+toronto&daddr=idee+inc,+toronto&hl=en&sll=43.656515,-79.37428&sspn=0.009113,0.01133&geocode=FVMymgIds8dE-yndC7_uSsvUiTE_LO-7bn8IkA%3BFZYcmgId7OhE-yEpUQX9E9cY8CmN2dpuN8vUiTGou-CB-n4Rdw&vpsrc=0&dirflg=w&mra=ltm&t=h&z=16) is interesting to say the least.
 
 I'm betting the real estate for their office was bargain basement cheap. Good call for a starving startup.
