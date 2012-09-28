@@ -1,24 +1,11 @@
 from xhpy.pylib import *
 
 from cv.lib.date import date_now
-from cv.lib.text_tagger import TextTagger
 from cv.models import Content, Tag
 from cv.ui.tag import :ui:tag
 
 import datetime
 import random
-
-class :ui:tagged-text(:x:element):
-  children pcdata
-  def render(self):
-    text = self.getFirstChild()
-    tagged_text = <div class="UITaggedText" />
-    for part in TextTagger.tag(text):
-      if isinstance(part, Tag):
-        tagged_text.appendChild(<ui:tag tag={tag} />)
-      else:
-        tagged_text.appendChild(part)
-    return tagged_text
 
 class :text(:x:primitive):
   children pcdata

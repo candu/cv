@@ -7,7 +7,12 @@
 
 html, body {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 12px;
+  font-size: 12pt;
   margin: 0;
   padding: 0;
+}
+
+em {
+  font-style: normal;
+  color: #36f;
 }
