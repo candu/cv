@@ -3,10 +3,27 @@
  * general padding on html/body, etc.
  */
 
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500);
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: 300;
+  src: url('/static/font/Ubuntu-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  src: url('/static/font/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  src: url('/static/font/Ubuntu-Medium.ttf');
+}
 
 html, body {
   font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
   font-size: 12pt;
   margin: 0;
   padding: 0;
