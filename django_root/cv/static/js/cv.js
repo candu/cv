@@ -90,11 +90,11 @@ var ContentManager = new Class({
     }.bind(this));
     elementSort.sortByElements(sorted);
   },
-  moveContentToLeft : function(tag) {
+  moveContentToTop : function(tag) {
     var name = tag.text;
-    var elementsAtRight =
-        $$('.UIRightRanked')[0].getElements('.UIContent');
-    var elementsToMove = elementsAtRight.filter(function(elem) {
+    var elementsAtBottom =
+        $$('.UIBottomRanked')[0].getElements('.UIContent');
+    var elementsToMove = elementsAtBottom.filter(function(elem) {
       return elem.getElements('.UITag').some(function(elem_tag) {
         return elem_tag.text == name;
       });
@@ -102,10 +102,10 @@ var ContentManager = new Class({
     new Fx.Multiplex(elementsToMove, {
       duration : EFFECT_DURATION,
       onComplete : function() {
-        $$('.UILeftRanked').adopt(elementsToMove);
-        var elementsAtLeft =
-            $$('.UILeftRanked')[0].getElements('.UIContent');
-        this.sortContents(elementsAtLeft);
+        $$('.UITopRanked').adopt(elementsToMove);
+        var elementsAtTop =
+            $$('.UITopRanked')[0].getElements('.UIContent');
+        this.sortContents(elementsAtTop);
         new Fx.Multiplex(elementsToMove, {
           duration : EFFECT_DURATION
         }).start({
@@ -116,10 +116,10 @@ var ContentManager = new Class({
       'opacity' : [1, 0]
     });
   },
-  moveContentToRight : function() {
-    var elementsAtLeft =
-        $$('.UILeftRanked')[0].getElements('.UIContent');
-    var elementsToMove = elementsAtLeft.filter(function(elem) {
+  moveContentToBottom : function() {
+    var elementsAtTop =
+        $$('.UITopRanked')[0].getElements('.UIContent');
+    var elementsToMove = elementsAtTop.filter(function(elem) {
       return !elem.getElements('.UITag').some(function(elem_tag) {
         return this.selected_tags.some(function(selected_tag) {
           return elem_tag.text == selected_tag;
@@ -129,10 +129,10 @@ var ContentManager = new Class({
     new Fx.Multiplex(elementsToMove, {
       duration : EFFECT_DURATION,
       onComplete : function() {
-        $$('.UIRightRanked').adopt(elementsToMove);
-        var elementsAtRight =
-            $$('.UIRightRanked')[0].getElements('.UIContent');
-        this.sortContents(elementsAtRight);
+        $$('.UIBottomRanked').adopt(elementsToMove);
+        var elementsAtBottom =
+            $$('.UIBottomRanked')[0].getElements('.UIContent');
+        this.sortContents(elementsAtBottom);
         new Fx.Multiplex(elementsToMove, {
           duration : EFFECT_DURATION
         }).start({
@@ -141,46 +141,6 @@ var ContentManager = new Class({
       }.bind(this)
     }).start({
       'opacity' : [1, 0]
-    });
-  },
-  showLeftColumn : function() {
-    var right = $$('.UIColumn.right')[0];
-    right.setStyle('float', 'right');
-    new Fx.Morph(right, {
-      duration : EFFECT_DURATION,
-      unit : '%',
-    }).start({
-      'width' : [100, 50]
-    });
-    var left = $$('.UIColumn.left')[0];
-    new Fx.Morph(left, {
-      duration : EFFECT_DURATION,
-      unit : '%',
-      onComplete : function() {
-        right.setStyle('float', 'none');
-      }
-    }).start({
-      'width' : [0, 50]
-    });
-  },
-  hideLeftColumn : function() {
-    var right = $$('.UIColumn.right')[0];
-    right.setStyle('float', 'right');
-    new Fx.Morph(right, {
-      duration : EFFECT_DURATION,
-      unit : '%',
-    }).start({
-      'width' : [50, 100]
-    });
-    var left = $$('.UIColumn.left')[0];
-    new Fx.Morph(left, {
-      duration : EFFECT_DURATION,
-      unit : '%',
-      onComplete : function() {
-        right.setStyle('float', 'none');
-      }
-    }).start({
-      'width' : [50, 0]
     });
   },
   getTagByName : function(name) {
@@ -194,10 +154,7 @@ var ContentManager = new Class({
         'click').addEvent('click', function(event) {
       this.deselectTag(tag);
     }.bind(this));
-    this.moveContentToLeft(tag);
-    if (this.selected_tags.length > 0) {
-      this.showLeftColumn();
-    } 
+    this.moveContentToTop(tag);
   },
   removeTag : function(tag) {
     var tag_id_class = tag.get('class').split(' ')[1];
@@ -206,10 +163,7 @@ var ContentManager = new Class({
         'click').addEvent('click', function(event) {
       this.selectTag(tag);
       }.bind(this));  
-    this.moveContentToRight();
-    if (this.selected_tags.length == 0) {
-      this.hideLeftColumn();
-    }
+    this.moveContentToBottom();
   },
   pushState : function(new_tags) {
     History.pushState({ tags : new_tags }, '', '/' + new_tags.join('/'));

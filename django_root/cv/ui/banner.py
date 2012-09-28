@@ -38,7 +38,12 @@ class :ui:banner(:x:element):
     return \
     <div class="UITagBlock">
       <div class="description">
-        View the parts most relevant to you by using these tags to filter my CV.
+        View the parts most relevant to you:
+        {' '}<em>use these tags</em>{' '}to filter my CV.
+      </div>
+      <div class="subdescription">
+        Entries matching any of your selected tags
+        will{' '}<em>rise to the top</em>.
       </div>
       {category_div}
     </div>

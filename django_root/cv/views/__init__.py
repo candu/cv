@@ -46,16 +46,12 @@ def index(request, tag_spec):
   ]
   banner = \
   <ui:banner name="Evan Savage" coordinates={coordinates} tags={tags} categories={categories}/>
-  left_ranked = <div class="UILeftRanked" />
-  right_ranked = <div class="UIRightRanked" />
-  for c in contents:
-    right_ranked.appendChild(<ui:content content={c} />)
   page = \
   <ui:page title="Evan Stratford :: CV">
     {banner}
-    <ui:two-columns>
-      {left_ranked}
-      {right_ranked}
-    </ui:two-columns>
+    <div class="UITopRanked" />
+    <div class="UIBottomRanked">
+      {[<ui:content content={content} /> for content in contents]}
+    </div>
   </ui:page>
   return HttpResponse(page)
