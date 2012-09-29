@@ -32,7 +32,7 @@ def index(request, tag_spec):
       'Awards',
       'Fitness',
       'Music',
-      'Public Speaking',
+      'Speaking',
       'Travel',
       'Volunteer Work',
       'Writing'
