@@ -7,8 +7,11 @@ tags: [JavaScript]
 location: Waterloo, ON, Canada
 ---
 
-- Worked with the QA team to develop an XPCOM extension bridge between Mozilla Firefox and IBM Rational Robot
-- Achieved 70% automation of manual testing procedures
-- Replaced hardcoded screen locations with computed values and calls to the Windows API, improving cross-machine reproducibility
+I worked with several other co-op students to *double automation coverage of
+manual testing procedures*. As part of this, I helped develop an *XPCOM
+extension bridge* between Mozilla Firefox and IBM Rational Robot.
 
-This XPCOM bridge deserves its place in the annals of gloriously terrible hacks. I created a Javascript XPCOM component for sending data to a DLL built by another member of the team, enabling us to pass browser state to Rational Robot.
+This XPCOM bridge was a gloriously terrible hack made necessary by the QA
+team's insistence on using Rational Robot. I created a Javascript XPCOM component
+for sending data to a DLL built by another member of the team, enabling us
+to pass browser state to Rational Robot.

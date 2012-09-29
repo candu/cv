@@ -1,16 +1,17 @@
 ---
 title: XHPy
 from: Dec 22, 2010
-to: Feb 01, 2011
+to: present
 tags: [Python, bash, Web Development, Open-Source]
 location: San Francisco, CA, USA
 ---
 
-- Ported the [open-source XHP project](https://github.com/facebook/xhp) to Python over the course of a month
-- Released this port via [github](https://github.com/candu/xhpy) and [PyPI](http://pypi.python.org/pypi/xhpy/0.8)
+XHPy is a Python port of Facebook's [XHP](https://github.com/facebook/xhp). It
+installs an [import hook](http://www.python.org/dev/peps/pep-0302/) that
+dynamically rewrites code as it is imported. The parser uses
+[Pratt top-down operator precedence](http://javascript.crockford.com/tdop/tdop.html),
+and is composed of a series of generators that stream the output of
+[tokenize](http://docs.python.org/library/tokenize.html).
 
-XHPy installs a [PEP 302-style import hook](http://www.python.org/dev/peps/pep-0302/) that uses [Pratt top-down operator precedence](http://javascript.crockford.com/tdop/tdop.html) to define streaming parser-generators; these parser-generators accept and output tokens as defined in [tokenize](http://docs.python.org/library/tokenize.html).
-
-When a module containing XHPy syntax is imported, this import hook acts as a preprocessor, outputting compiled Python bytecode to the appropriate .pyc file. Since this .pyc file is only generated when the source file changes, we incur the performance hit from preprocessing exactly once.
-
-I originally used parser combinators for parsing. Parser combinators are really cool. They're also not that great in the performance department.
+Development releases are available on [github](https://github.com/candu/xhpy);
+see [PyPI](http://pypi.python.org/pypi/xhpy/0.8) for more stable versions.

@@ -2,26 +2,17 @@
 title: Post-Graduation Bike Trip
 from: May 15, 2010
 to: Nov 23, 2010
-tags: [JavaScript, Python, bash, Web Development, Communication, Travel]
+tags: [JavaScript, Python, bash, Web Development, Writing, Travel]
 location: Europe
 ---
 
-- Biked [12 178 km from Copenhagen to Istanbul via Portugal](http://maps.google.com/maps/ms?msid=215589061814516557820.0004951825c48233f648b&msa=0&ll=54.406143,14.567871&spn=3.87573,10.821533) over six months
-- Designed, built, and deployed the [Bike to the Earth website](http://biketotheearth.org) using CouchDB, Pylons, and jQuery
-- Wrote daily blog posts chronicling the journey
-- Wrote proof-of-concept functionality to create daily maps from GPS readings using gpsd, Python, and Google Static Maps API
-- Used ffmpeg to compile [videos](http://www.youtube.com/biketotheearth#p/u/55/-rCmrtmP8yw) from frames taken using an inexpensive handlebar-mounted webcam
+[Valkyrie Savage](https://www.facebook.com/valkyrie) and I biked
+[from Copenhagen to Istanbul via Portugal](http://maps.google.com/maps/ms?msid=215589061814516557820.0004951825c48233f648b&msa=0&ll=54.406143,14.567871&spn=3.87573,10.821533),
+a distance of *over 12 000 km in six months*. On the way, we wrote
+*150 000 words of daily blog posts*.
 
-The GPS tracker and handlebar cam were awesome. They were also utterly impractical on the trip; with the 9-cell battery, our netbook had 6-7 hours of battery life and took 3 hours to charge. Since we often rode 8-10 hours per day, this was a non-starter. With the netbook sandwiched in amongst the rest of our gear, it would also overheat. Showing off our tech gear would make us targets for theft in some areas, and we had no plan for replacing it. Finally, the amount of footage would have exceeded both our capacity to upload it and our desire to organize it.
-
-Most of these problems came from our threadbare budget; we'll up the ante next time we head out on an epic adventure. Here's how:
-
-First, we need separate video and GPS devices so that we're not bounded by laptop battery life. We'll hook the video device up to a quick on/off button so we can record just the interesting parts, which should mitigate the pain of curating massive volumes of footage.
-
-Flash drives are super-important as part of our itinerant data strategy; we used them to mail our families backups of our photos, which worked well. We'll sync our video and GPS devices both to the laptop and to separate flash drives at the end of each day. We'll also carry a separate drive with our Ubuntu boot disk and any necessary scripts, making it that much easier to recover from theft. (Ever try downloading an ISO over an Albanian internet connection?)
-
-We were somewhat inconsistent in our use of mobile devices. Next time, we'll make sure to maintain sufficient credit to post quick updates. We might also look into satellite internet deals. These are expensive, but not prohibitively so, and we could use this for smaller uploads like GPS data and journal entries.
-
-Finally, we'll find a solid travel-blogging platform. While it was fun hacking together our own, this was decidedly a spare-time effort, and we'd rather concern ourselves with the more exciting problems mentioned above.
-
-So: keep posted for our next foray into adventure telepresence! May it be immeasurably more successful than our last.
+Before the trip, I also put together a proof-of-concept handlebar cam, using
+ffmpeg to compile
+[videos](http://www.youtube.com/biketotheearth#p/u/55/-rCmrtmP8yw) from still
+frames. This setup was unfortunately impractical for our trip, but I'm hoping
+to iterate on it for future trips.

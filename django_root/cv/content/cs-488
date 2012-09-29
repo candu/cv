@@ -1,0 +1,14 @@
+---
+title: CS 488 - Introduction to Computer Graphics
+from: May 01, 2009
+to: Aug 30, 2009
+org: University of Waterloo
+tags: [C++, Mathematics, Algorithms]
+location: Waterloo, ON, Canada
+---
+
+I wrote a raytracer with randomized supersampling, Phong lighting, and *support
+for implicit surfaces*. For my final project, I *wrote a procedural content
+generation engine* to render interactive natural landscapes with
+fractal trees, *Catmull-Clark subdivision-based rocks*, and
+multiple-frequency Perlin noise textures.

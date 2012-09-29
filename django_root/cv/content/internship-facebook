@@ -7,8 +7,13 @@ tags: [C++, bash, PHP, Machine Learning, Real-Time Computing, Web Development]
 location: Palo Alto, CA, USA
 ---
 
-- Developed a real-time spam detection system capable of handling millions of user messages per second
-- Tested and deployed an internal Thrift service for QR code generation, using my own port of rQRCode to C++
-- Used gprof to help profile and optimize a generalized spam classification framework, reducing CPU load by 15%
+I worked on the Site Integrity team, which *prevents spam and fraud in
+real-time* across all Facebook products. I developed an *unsupervised machine
+learning system* to scan *billions of messages per day* for spam. I also
+used gprof to *identify high-value optimizations* in our generalized spam
+classification framework, *reducing CPU load by 15%*.
 
-I worked on the Site Integrity team, which was tasked with the mission of preventing spam and fraud in all their forms. Those forms are many. Some are ugly, malicious, and evil. Others are bizarre. Most are both.
+For a hackathon, I *ported rQRCode to a C++-backed Thrift service* and helped
+build out a demo showing *QR code integration with Facebook*. Three years
+later, my Thrift service is now being incorporated into Facebook's
+Japan-specific QR offerings.

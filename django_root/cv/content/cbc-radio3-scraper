@@ -6,7 +6,14 @@ tags: [Python, bash, Music]
 location: Gatineau, QC, Canada
 ---
 
-- Reverse-engineered the [online player at CBC Radio 3 New Music Canada](http://radio3.cbc.ca/) to scrape URLs to MP3s
-- Built [Python scripts](http://code.google.com/p/evan-stratford-public/source/browse/#svn%2Ftrunk%2Futils%2Fcbc3) for listing and downloading filtered sets of MP3s, then used them to download over 2000 songs in the Funk and Electro genres
+CBC Radio 3 runs [New Music Canada](http://radio3.cbc.ca/), a database for
+Canadian artists. Music uploaded there is freely available, and can be listened
+to through the player on that site.
 
-I was ecstatic when I returned home to find that my scraper had dutifully fetched all the funk and electro known to CBC Radio 3. I was less ecstatic to find that most of it was utter crap; I turned to [Quod Libet](http://code.google.com/p/quodlibet/), using a plugin that automatically ranked songs based on my listening patterns. This handily sifted out most of said crap.
+Using Firebug and Wireshark, I *reverse-engineered* this player to get at the
+underlying audio file URLs. I then built a
+[Python-based scraper](http://code.google.com/p/evan-stratford-public/source/browse/#svn%2Ftrunk%2Futils%2Fcbc3)
+for retrieving those URLs and populating metadata. With this scraper,
+I downloaded their entire selection of Funk and Electro. The resulting
+collection was loaded into Quod Libet, where I used shuffle play together with
+a plugin that tracks user listening patterns to discover favorites.

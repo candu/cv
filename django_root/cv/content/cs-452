@@ -1,0 +1,14 @@
+---
+title: CS 452 - Real-Time Computing 
+from: May 01, 2009
+to: Aug 30, 2009
+org: University of Waterloo
+tags: [C, Algorithms, Real-Time Computing]
+location: Waterloo, ON, Canada
+---
+
+I worked with [Ondrej Ruttkay](http://cz.linkedin.com/pub/ondrej-ruttkay/8/5aa/608)
+to design and build an embedded microkernel based on the
+Send-Receive-Reply message-passing mechanism for the ARM-based Cirrus EP9302.
+We then built an application for this microkernel to control Märklin model
+trains.

@@ -1,0 +1,31 @@
+---
+title: Core Photos Engineer
+from: Nov 01, 2011
+to: Sep 28, 2012 
+org: Facebook, Inc.
+tags: [JavaScript, Python, PHP, bash, Web Development]
+location: Menlo Park, CA, USA
+---
+
+After spending a year with the Search Infrastructure team, I switched gears and
+moved to the Core Photos team. This horizontal role switching is highly encouraged
+at Facebook.
+
+I took a failing face detection/recognition system and 
+*rebuilt it for scalability*, achieving *99.9% reliability* and a
+*tagging boost of 2%*. I then worked with
+[Lubomir Bourdev](http://www.cs.berkeley.edu/~lbourdev/) to build
+*easily reusable detection/recognition components*, making it easier to drive
+further improvements to our tag suggestion systems.
+
+The bulk of my time with Core Photos was spent driving a major initiative to migrate
+*all photos-related data* into TAO. TAO uses a single schema for nodes and edges in
+our social graph, providing access via a simple API that abstracts away
+Memcache/MySQL.
+
+The migration required *extensive planning*, 
+*frequent communication both within and across teams*, and
+*broad knowledge of Facebook's codebase*. When I joined Core Photos, several people
+had previously tried and failed to gain traction on this project. By the time I left,
+we had *successfully migrated all photo tags* and were very close to migrating
+photo albums.

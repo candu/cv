@@ -2,14 +2,18 @@
 title: Research Intern
 from: Jan 01, 2009
 to: Apr 30, 2009
-org: Canadian National Research Council
+org: Canadian National Research Council (CNRC)
 tags: [C++, bash, Machine Learning, Mathematics, Algorithms]
 location: Gatineau, QC, Canada
 ---
 
-- Designed and implemented a module to cluster similar phrases, then scaled it to handle the 2008 GALE Chinese-English corpus
-- Implemented bilingual sentence segmentation within PORTAGE, reducing HMM alignment model training time by 80-90%
-- Wrote a template-based binary IO library in C++, improving the serialization of intermediate pipeline stages
-- Co-authored the paper *Phrase Clustering for Smoothing TM Probabilities - or, How to Extract Paraphrases from Phrase Tables*, which was accepted for submission at COLING 2010
+For this internship, I worked with CNRC's award-winning PORTAGE system for
+statistical machine translation. I designed and built a module to
+cluster similar phrases, then scaled it to handle the 2008 GALE
+Chinese-English corpus with 40 million phrase pairs. I also implemented
+Xu-Zens-Ney bilingual sentence segmentation, *reducing our Hidden Markov
+Model training time by over 80%*.
 
-I lived on campus in these townhouse-style apartments with an International Business graduate student from near Québec. He worked in Ottawa for some government office. We devised a pact: he would speak in English, I would speak in French. When it comes to language practice, there's no substitute for direct practice. Actually, that goes for most fields of human endeavor.
+The phrase clustering work resulted in co-authorship on the paper
+*Phrase Clustering for Smoothing TM Probabilities*, which was accepted
+at COLING 2010.

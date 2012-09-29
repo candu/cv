@@ -21,6 +21,7 @@ def index(request, tag_spec):
     ('languages', ('bash', 'C', 'C++', 'Java', 'JavaScript', 'PHP', 'Python')),
     ('technical', (
       'Algorithms',
+      'Distributed Systems',
       'Mathematics',
       'Machine Learning',
       'Real-Time Computing',
@@ -29,11 +30,12 @@ def index(request, tag_spec):
     )),
     ('personal', (
       'Awards',
-      'Communication',
       'Fitness',
       'Music',
+      'Public Speaking',
       'Travel',
-      'Volunteer Work'
+      'Volunteer Work',
+      'Writing'
     ))
   ]
   contents = sorted(
@@ -47,7 +49,7 @@ def index(request, tag_spec):
   banner = \
   <ui:banner name="Evan Savage" coordinates={coordinates} tags={tags} categories={categories}/>
   page = \
-  <ui:page title="Evan Stratford :: CV">
+  <ui:page title="Evan Savage :: CV">
     {banner}
     <div class="UITopRanked" />
     <div class="UIBottomRanked">

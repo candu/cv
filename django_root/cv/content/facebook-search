@@ -1,0 +1,29 @@
+---
+title: Search Infrastructure Engineer
+from: Dec 06, 2010
+to: Nov 01, 2011
+org: Facebook, Inc.
+tags: [C++, Python, bash, Distributed Systems, Real-Time Computing]
+location: Menlo Park, CA, USA
+---
+
+As a [bootcamper](https://www.facebook.com/note.php?note_id=177577963919),
+I optimized our site-wide JavaScript-based CSS package loading framework to
+cut down on expensive setInterval() calls.
+
+I then joined the Search Infrastructure team and built
+*search for Facebook Groups*, the first fulltext search product to
+use our distributed graph search system. This was a *full-stack project*; I was
+responsible for everything from *indexing* to *realtime updates* to *frontend
+development*. After rollout, I maintained this product by managing a 
+weekly push process, building dashboards, and working with teammates to
+resolve operational issues. I also *improved search quality* through
+query logs analysis and better handling of CJK character sets.
+
+After that, I worked more closely with the Search Infrastructure team on
+improving our core graph search system. I *automated index builds*, making the
+process of pushing our 50 TB index quicker and more reliable. As part of the
+oncall rotation, I periodically *managed that push process end-to-end*. I
+instrumented our system to *report a breakdown of CPU/network usage*, allowing
+us to precisely target our optimizations at specific common queries and
+high-volume callers.

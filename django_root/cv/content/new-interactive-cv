@@ -2,13 +2,18 @@
 title: Interactive CV
 from: Sep 23, 2011
 to: present
-tags: [Python, JavaScript, Web Development]
+tags: [Python, JavaScript, Web Development, Open-Source]
 location: San Francisco, CA, USA
 ---
 
-- Designed and built [my online CV](http://cv.evanstratford.com) using Django, XHPy, and mootools
-- Added views optimized for print and mobile media, as well as for browsers lacking JavaScript support
+I design, build, and maintain [this online CV](http://cv.savageevan.com)
+using Django, XHPy, and mootools. It uses a
+[Jekyll](https://github.com/mojombo/jekyll)-style *compiled YAML/Markdown*
+approach to make adding new entries simple.
 
-This was mainly a project to familiarize myself with Django and mootools, as well as to try out my XHPy templating framework. If you look through [the commit history](https://github.com/candu/evanstratford/commits/master), you'll see a frantic sequence of experiments like hierarchical tag namespaces, tag similarity metrics, and vertical positioning time scales.
+You can click on any tag to *filter my life experiences*. My CV also comes
+equipped with a print stylesheet that is integrated with the tag system, so
+you can even *print a customized version* to suit your needs.
 
-Most of that was subsequently removed. Do I regret trying these things out? Definitely not; they were fantastic for hitting some of the corners and rough spots of my chosen stack. That said, there's a powerful "minimum viable product" argument lurking here...
+To top it all off, the code is *open-sourced* on
+[Github](https://github.com/candu/cv).
