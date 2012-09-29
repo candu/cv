@@ -8,7 +8,7 @@ location: San Francisco, CA, USA
 
 I design, build, and maintain [this online CV](http://cv.savageevan.com)
 using Django, XHPy, and mootools. It uses a
-[Jekyll](https://github.com/mojombo/jekyll)-style *compiled YAML/Markdown*
+[Jekyll](https://github.com/mojombo/jekyll)-inspired *compiled YAML/Markdown*
 approach to make adding new entries simple.
 
 You can click on any tag to *filter my life experiences*. My CV also comes

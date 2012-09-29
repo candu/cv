@@ -36,7 +36,7 @@ class :ui:banner(:x:element):
     </div>
 
     return \
-    <div class="UITagBlock">
+    <div class="UITagBlock" id="top">
       <div class="description">
         View the parts most relevant to you:
         {' '}<em>use these tags</em>{' '}to filter my CV.

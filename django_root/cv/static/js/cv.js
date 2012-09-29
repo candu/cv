@@ -191,6 +191,7 @@ var ContentManager = new Class({
 window.addEvent('domready', function(event) {
   new ContentManager();
   $$('a').set('target', '_blank');
+  $$('a.UITopLink').set('target', '');
 });
 
 })(window);

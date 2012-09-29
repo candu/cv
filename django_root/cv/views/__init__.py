@@ -52,8 +52,10 @@ def index(request, tag_spec):
   <ui:page title="Evan Savage :: CV">
     {banner}
     <div class="UITopRanked" />
+    <a class="UITopLink" href="#top">back to top</a>
     <div class="UIBottomRanked">
       {[<ui:content content={content} /> for content in contents]}
     </div>
+    <a class="UITopLink" href="#top">back to top</a>
   </ui:page>
   return HttpResponse(page)

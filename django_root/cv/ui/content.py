@@ -19,7 +19,6 @@ class :ui:content(:x:element):
   attribute Content content
   def render(self):
     content = self.getAttribute('content')
-    content_id = 'content-{0}'.format(content.id)
     content_tags = <div class="UIContentTags" />
     for tag in sorted(content.tags.all(), key=lambda t: t.name):
       content_tags.appendChild(<ui:tag tag={tag} />)
@@ -35,7 +34,7 @@ class :ui:content(:x:element):
         {content.org}
       </div>
     return \
-    <div class="UIContent" id={content_id}>
+    <div class="UIContent" id={content.filename}>
       <div class="UIContentHeader">
         {content_tags}
         <div class="UIContentTitle">

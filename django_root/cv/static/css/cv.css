@@ -89,3 +89,9 @@
   border: 1px solid #ccc;
   color: #444;
 }
+
+.UITopLink {
+  margin: 4px;
+  display: block;
+  text-align: center;
+}
