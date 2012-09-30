@@ -22,6 +22,7 @@ def index(request, tag_spec):
     ('technical', (
       'Algorithms',
       'Distributed Systems',
+      'Hardware',
       'Mathematics',
       'Machine Learning',
       'Real-Time Computing',

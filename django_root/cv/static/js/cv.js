@@ -50,11 +50,9 @@ var ContentManager = new Class({
 
     var path = document.location.pathname;
     var path_tags = path.substr(1).split('/');
-    console.log(path_tags);
     for (var i = 0; i < path_tags.length; i++) {
       var name = path_tags[i];
       var tag = this.getTagByName(name);
-      console.log(tag);
       if (tag == null) {
         continue;
       }
@@ -64,15 +62,24 @@ var ContentManager = new Class({
       this.addTag(tag);
     }
   },
+  stableNow : +(new Date()),
+  dateCache : {},
   getContentDate : function(elem) {
-    var s = elem.getElement('.UIContentDate').get('text');
-    var t = s.split('to');
-    return +(new Date(t[t.length-1]));
-  },
-  getContentID : function(elem) {
-    var s = elem.get('id');
-    var n = s.split('-')[1];
-    return +n;
+    var elem_id = elem.get('id');
+    if (!(elem_id in this.dateCache)) {
+      var s = elem.getElement('.UIContentDate').get('text');
+      var t = s.split(' to ');
+      var started = +(new Date(t[0]));
+      if (t.length == 1) {
+        this.dateCache[elem_id] = [started, started];
+      } else if (t[1] == 'present') {
+        this.dateCache[elem_id] = [started, this.stableNow];
+      } else {
+        var finished = +(new Date(t[1]));
+        this.dateCache[elem_id] = [started, finished];
+      }
+    }
+    return this.dateCache[elem_id];
   },
   sortContents : function(elems) {
     var elementSort = new Fx.Sort(elems, {
@@ -82,11 +89,17 @@ var ContentManager = new Class({
       }
     });
     var sorted = elems.sort(function(e1, e2) {
-      var dt = this.getContentDate(e2) - this.getContentDate(e1);
-      if (dt != 0) {
-        return dt;
+      var date1 = this.getContentDate(e1);
+      var date2 = this.getContentDate(e2);
+      date1.push(e1.get('id'));
+      date2.push(e2.get('id'));
+      if (date2 < date1) {
+        return -1;
       }
-      return this.getContentID(e2) - this.getContentID(e1);
+      if (date2 > date1) {
+        return 1;
+      }
+      return 0;
     }.bind(this));
     elementSort.sortByElements(sorted);
   },
