@@ -17,8 +17,9 @@ use our distributed graph search system. This was a *full-stack project*; I was
 responsible for everything from *indexing* to *realtime updates* to *frontend
 development*. After rollout, I maintained this product by managing a 
 weekly push process, building dashboards, and working with teammates to
-resolve operational issues. I also *improved search quality* through
-query logs analysis and better handling of CJK character sets.
+resolve operational issues. I also *improved search quality*, using
+detailed query log analysis to prioritize fixes to the indexing process and
+UI.
 
 After that, I worked more closely with the Search Infrastructure team on
 improving our core graph search system. I *automated index builds*, making the

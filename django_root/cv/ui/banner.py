@@ -50,15 +50,6 @@ class :ui:banner(:x:element):
 
 
   def render(self):
-    coordinates = self.getAttribute('coordinates')
-    coords_div = \
-    <div class="UICoordinates segment">
-      <div class="title">Coordinates</div>
-      <div class="description">
-        {[self._renderCoordinate(key, text, link) for key, text, link in coordinates]}
-      </div>
-    </div>
-
     mission = \
     <div class="UIMission segment">
       <div class="title">Mission</div>
@@ -68,13 +59,22 @@ class :ui:banner(:x:element):
       </div>
     </div>
 
+    coordinates = self.getAttribute('coordinates')
+    coords_div = \
+    <div class="UICoordinates segment">
+      <div class="title">Coordinates</div>
+      <div class="description">
+        {[self._renderCoordinate(key, text, link) for key, text, link in coordinates]}
+      </div>
+    </div>
+
     name = self.getAttribute('name')
     return \
     <div class="UIBanner">
       <div class="UIName">{name}</div>
       <div class="UISegments">
-        {coords_div}
         {mission}
+        {coords_div}
       </div>
       {self._renderTagBlock()}
     </div>

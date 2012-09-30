@@ -1,0 +1,15 @@
+---
+title: Proximity Dress
+from: Mar 18, 2012
+to: Apr 01, 2012
+tags: [Algorithms]
+location: San Francisco, CA, USA
+---
+
+I worked with [Valkyrie Savage](https://www.facebook.com/valkyrie) to *design,
+build, and program Arduino-based electronics* for her wedding dress.
+Using two XBee modules, an Arduino Fio, and an Arduino Lilypad with XBee
+breakout board, we *constructed a proximity sensor* based on RSSI pin
+signal strength between the two modules. This sensor was used to illuminate
+a series of LEDs on her dress, providing a visual indication of our
+mutual proximity.
