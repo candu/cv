@@ -62,5 +62,5 @@ class Content(BaseModel):
   title = models.CharField(max_length=255)
   org = models.CharField(max_length=255)
   description = models.TextField()
-  started = models.DateField(null=True, blank=True)
-  finished = models.DateField()
+  started = models.DateField()
+  finished = models.DateField(null=True, blank=True)

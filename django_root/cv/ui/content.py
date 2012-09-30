@@ -17,16 +17,22 @@ class :text(:x:primitive):
 class :ui:content(:x:element):
   DATE_FORMAT = '%b %e, %Y'
   attribute Content content
+  def _renderDates(self, started, finished):
+    started_date = started.strftime(self.DATE_FORMAT)
+    if not finished:
+      finished_date = 'present'
+    else:
+      finished_date = finished.strftime(self.DATE_FORMAT)
+    if started_date == finished_date:
+      return started_date
+    return '{0} to {1}'.format(started_date, finished_date)
+
   def render(self):
     content = self.getAttribute('content')
     content_tags = <div class="UIContentTags" />
     for tag in sorted(content.tags.all(), key=lambda t: t.name):
       content_tags.appendChild(<ui:tag tag={tag} />)
-    content_date = content.finished.strftime(self.DATE_FORMAT)
-    if content.started != content.finished:
-      content_date = '{0} to {1}'.format(
-          content.started.strftime(self.DATE_FORMAT),
-          content_date)
+    content_date = self._renderDates(content.started, content.finished)
     content_org = None
     if content.org:
       content_org = \

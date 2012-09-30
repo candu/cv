@@ -40,7 +40,9 @@ def index(request, tag_spec):
     ))
   ]
   contents = sorted(
-      Content.objects.all(), key=lambda c: c.finished, reverse=True)
+      Content.objects.all(),
+      key=lambda c: (c.started, c.finished, c.filename),
+      reverse=True)
   coordinates = [
     ('email', 'savage.evan@gmail.com', 'mailto:savage.evan@gmail.com'),
     ('facebook', 'savage.evan', 'http://facebook.com/savage.evan'),

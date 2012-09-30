@@ -66,8 +66,8 @@ class ContentParser(object):
     if not to_str:
       raise ContentParserException('Expected (from, to) dates')
     started = string_to_date(from_str)
-    if to_str in ['now', 'current', 'present']:
-      finished = datetime_to_date(datetime.datetime.now())
+    if to_str == 'present':
+      finished = None
     else:
       finished = string_to_date(to_str)
     return (started, finished)
