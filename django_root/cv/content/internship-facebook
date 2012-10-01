@@ -3,17 +3,22 @@ title: Software Engineering Intern
 from: Sep 01, 2009
 to: Dec 23, 2009
 org: Facebook, Inc.
-tags: [C++, bash, PHP, Machine Learning, Real-Time Computing, Web Development]
+tags: [C++, Bash, PHP, Machine Learning, Real-Time Computing, Web Development]
 location: Palo Alto, CA, USA
 ---
 
-I worked on the Site Integrity team, which *prevents spam and fraud in
-real-time* across all Facebook products. I developed an *unsupervised machine
-learning system* to scan *billions of messages per day* for spam. I also
-used gprof to *identify high-value optimizations* in our generalized spam
-classification framework, *reducing CPU load by 15%*.
+I worked on the [Site Integrity team](http://www.scribd.com/doc/70451272/Facebook-Security-Infographic),
+which *prevents spam and fraud in real-time* across all Facebook products.
+I developed an *unsupervised learning system* to detect spam across 
+*billions of user messages per day*. This work resulted in a
+[patent](http://appft1.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&Sect2=HITOFF&d=PG01&p=1&u=/netahtml/PTO/srchnum.html&r=1&f=G&l=50&s1=20120124664.PGNR.&OS=DN/20120124664&RS=DN/20120124664)
+on the underlying classification and user feedback mechanisms.
 
-For a hackathon, I *ported rQRCode to a C++-backed Thrift service* and helped
-build out a demo showing *QR code integration with Facebook*. Three years
-later, my Thrift service is now being incorporated into Facebook's
-Japan-specific QR offerings.
+I also optimized our generalized spam classification framework,
+*reducing CPU load by 15%* after identifying performance issues with gprof.
+
+For a hackathon, I
+*ported [rQRCode](http://whomwah.github.com/rqrcode/) to a C++ Thrift service*
+and helped build out a demo product for *social graph actions via QR codes*.
+Three years later, this Thrift service is now being incorporated into
+Facebook's Japan-specific QR offerings.

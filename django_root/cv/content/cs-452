@@ -7,8 +7,10 @@ tags: [C, Algorithms, Real-Time Computing, Hardware]
 location: Waterloo, ON, Canada
 ---
 
-I worked with [Ondrej Ruttkay](http://cz.linkedin.com/pub/ondrej-ruttkay/8/5aa/608)
-to design and build an embedded microkernel based on the
-Send-Receive-Reply message-passing mechanism for the ARM-based Cirrus EP9302.
-We then built an application for this microkernel to control Märklin model
-trains.
+I worked with
+[Ondrej Ruttkay](http://cz.linkedin.com/pub/ondrej-ruttkay/8/5aa/608)
+to design and build an embedded microkernel based on
+[Send-Receive-Reply message-passing](http://c2.com/cgi/wiki?SendReceiveReply)
+for the ARM-based [Cirrus EP9302](http://www.cirrus.com/en/products/ep9302.html).
+We then built an application for this microkernel to control
+[Märklin model trains](http://www.marklin.com/).

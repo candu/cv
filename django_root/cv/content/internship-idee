@@ -1,14 +1,14 @@
 ---
 title: Visual Search Algorithm Developer
 from: Jan 01, 2007
-to: Apr 30, 2007
+to: Dec 30, 2007
 org: Idée, Inc.
 tags: [JavaScript, Python, PHP, Machine Learning, Algorithms, Web Development, Mathematics]
 location: Toronto, ON, Canada
 ---
 
-My work with Idée, a small visual search company based in Toronto, was
-diverse. I developed a toolkit for evaluating high-dimensional Approximate
+My work with [Idée](http://ideeinc.com/) was diverse.
+I developed a toolkit for evaluating high-dimensional Approximate
 Nearest Neighbor algorithms. I then worked with a designer to build and release
 [Idée Labs](http://labs.ideeinc.com/), a Pylons-based web application
 featuring *visual search across millions of images*. I also collected feedback
@@ -16,9 +16,10 @@ on the PHP-based internal operator interface, implementing requested fixes
 and improvements.
 
 I *learned Python in a day*, then used it to build database migration scripts.
-This learning paid off; my next project used Python and the Amazon APIs
-to *scrape millions of book covers*.
+My next Python project after that used Amazon APIs to
+*scrape millions of book covers*, allowing us to
+*identify thousands of infringing uses* of client images in those covers.
 
 For the last couple of weeks, I *researched methods for matching images against
 user sketches*, implementing a prototype algorithm based on curve extraction 
-and normalized Hausdorff distance.
+and [Hausdorff distance](http://en.wikipedia.org/wiki/Hausdorff_distance).

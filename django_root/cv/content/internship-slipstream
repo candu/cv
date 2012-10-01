@@ -9,7 +9,7 @@ location: Waterloo, ON, Canada
 
 I worked with several other co-op students to *double automation coverage of
 manual testing procedures*. As part of this, I helped develop an *XPCOM
-extension bridge* between Mozilla Firefox and IBM Rational Robot.
+extension bridge* between Mozilla Firefox and [IBM Rational Robot](http://www-01.ibm.com/software/awdtools/tester/robot/).
 
 This XPCOM bridge was a gloriously terrible hack made necessary by the QA
 team's insistence on using Rational Robot. I created a Javascript XPCOM component

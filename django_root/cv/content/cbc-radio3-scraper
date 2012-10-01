@@ -2,7 +2,7 @@
 title: CBC Radio 3 Scraper/Downloader
 from: Apr 03, 2009
 to: Apr 03, 2009
-tags: [Python, bash, Music]
+tags: [Python, Bash, Music]
 location: Gatineau, QC, Canada
 ---
 
@@ -14,6 +14,7 @@ Using Firebug and Wireshark, I *reverse-engineered* this player to get at the
 underlying audio file URLs. I then built a
 [Python-based scraper](http://code.google.com/p/evan-stratford-public/source/browse/#svn%2Ftrunk%2Futils%2Fcbc3)
 for retrieving those URLs and populating metadata. With this scraper,
-I downloaded their entire selection of Funk and Electro. The resulting
-collection was loaded into Quod Libet, where I used shuffle play together with
-a plugin that tracks user listening patterns to discover favorites.
+I downloaded their entire selection of Funk and Electro. Finally, I loaded
+this collection into [Quod Libet](http://code.google.com/p/quodlibet/), using
+its automatic rating and rating-weighted shuffle plugins to discover my
+favorite content.

@@ -18,7 +18,7 @@ def index(request, tag_spec):
       pass
   tags = Tag.objects.all()
   categories = [
-    ('languages', ('bash', 'C', 'C++', 'Java', 'JavaScript', 'PHP', 'Python')),
+    ('languages', ('Bash', 'C', 'C++', 'Java', 'JavaScript', 'PHP', 'Python')),
     ('technical', (
       'Algorithms',
       'Distributed Systems',
