@@ -9,10 +9,10 @@ location: Mountain View, CA, USA
 
 I worked with Google's AdSense team, using Javascript
 cross-domain communication techniques to implement client-side batching for
-ad block requests. This was in the dark days before postMessage() [gained
+ad block requests. This was in the dark days before `postMessage()` [gained
 reasonable adoption](http://caniuse.com/#feat=x-doc-messaging), so it
-involved a good deal of hackery with javascript: URLs and 
-dynamically-generated script tags.
+involved a good deal of hackery with `javascript:` URLs and 
+dynamically-generated `<script />` tags.
 
 I also wrote a Google Spreadsheets widget for generating heightmaps as part of
 an internal Google Docs hackathon.

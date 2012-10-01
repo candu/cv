@@ -10,5 +10,5 @@ location: Waterloo, ON, Canada
 I wrote a raytracer with randomized supersampling, Phong lighting, and *support
 for implicit surfaces*. For my final project, I *wrote a procedural content
 generation engine* to render interactive natural landscapes with
-fractal trees, *Catmull-Clark subdivision-based rocks*, and
+fractal trees, *rocks based on [Catmull-Clark subdivision](http://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface)*, and
 multiple-frequency Perlin noise textures.

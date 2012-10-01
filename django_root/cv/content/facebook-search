@@ -9,7 +9,7 @@ location: Menlo Park, CA, USA
 
 As a [bootcamper](https://www.facebook.com/note.php?note_id=177577963919),
 I optimized our site-wide JavaScript-based CSS package loading framework to
-cut down on expensive setInterval() calls.
+cut down on expensive `setInterval()` calls.
 
 I then joined the Search Infrastructure team and built
 *search for Facebook Groups*, the first fulltext search product to
