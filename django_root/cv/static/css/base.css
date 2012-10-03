@@ -107,3 +107,7 @@ li {
   font-size: 110%;
   margin-bottom: 2px;
 }
+
+.UIContentDescription {
+  line-height: 120%;
+}

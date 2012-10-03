@@ -15,6 +15,7 @@ class :ui:page(:x:element):
       <link href={settings.STATIC_URL + 'css/base.css'} rel="stylesheet" type="text/css" media="screen, print" />
       <link href={settings.STATIC_URL + 'css/cv.css'} rel="stylesheet" type="text/css" media="screen" />
       <link href={settings.STATIC_URL + 'css/cv-print.css'} rel="stylesheet" type="text/css" media="print" />
+      <script src={settings.STATIC_URL + 'js/ga.js'}></script>
     </head>
     container = <div id="container" />
     for child in self.getChildren():
