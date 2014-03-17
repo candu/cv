@@ -1,0 +1,25 @@
+---
+title: datafist
+from: Nov 15, 2012
+to: Mar 11, 2013
+org: Savage Internet
+tags: [Personal Data, JavaScript, Open-Source, Web Development]
+location: Berkeley, CA, USA
+---
+
+[datafist](LINK) is an in-browser toolkit for visually exploring your personal
+data.   Similar to [Max/MSP](LINK) or [PureData](LINK), datafist offers a
+[visual programming](LINK) interface built around a toolkit of
+simple, composable operations.  As you play around with these operations, the
+result is simultaneously visualized.  The goal was to create a simple open-source
+tool that less technically-inclined self-trackers could use to get more out of
+their personal data.
+
+Everything is client-side HTML5 and JavaScript (including the favicon!).  There
+is no backend; just clone the repo and go!  It can handle files of up to
+~20-25K data points.  Visualizations are built on top of [d3](LINK), with
+[mootools](LINK) as a generic JavaScript library for everything else.  It makes
+use of HTML5 [drag-and-drop](LINK) and [File API](LINK).
+
+You can see a screencast of it in action [here](LINK), or play around with a
+live version [here](LINK).  It currently requires Google Chrome.

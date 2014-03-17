@@ -1,0 +1,25 @@
+---
+title: Quantified Savagery Blog
+from: Sep 19, 2012
+to: Nov 14, 2012
+org: self
+tags: [Writing, Personal Data, Bash, Python, JavaScript, Visualization]
+location: Berkeley, CA, USA
+---
+
+I wrote a [series of blog posts](LINK) discussing several of my self-tracking
+experiments.  Most of these are accompanied by code snippets and visualizations
+explaining my approaches to making sense of the underlying data, all of which
+is [available on github](LINK).  The blog itself is based off the excellent
+[Octopress](LINK) engine.
+
+Visualizations for Quantified Savagery were built using [d3](LINK), a
+JavaScript library for building interactive DOM-based visualizations.  Most
+of the standalone analysis scripting was done in Python, with little bits
+of shell scripting sprinkled throughout.
+
+I've since added a couple of posts to this blog, but most of my blogging
+activity here was confined to the end of 2012.  It served me very well as
+a soapbox for my thoughts on personal data, especially in the post-Facebook
+time vacuum before I shifted my attention to more intensive engineering
+projects.
