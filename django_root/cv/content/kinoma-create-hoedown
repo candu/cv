@@ -1,0 +1,23 @@
+---
+title: Kinoma Create Hoedown!
+from: Jan 20, 2014
+to: Mar 9, 2014
+org: Savage Internet
+tags: [JavaScript, Python, Web Development, Hardware]
+location: Toronto, ON, Canada
+---
+
+Using the newly-announced [Kinoma Create](LINK) hardware prototyping platform,
+[Valkyrie Savage](LINK) and I built Hoedown!, a unique game that we
+demonstrated at the Kinoma stand during [SXSW 2014](LINK).
+
+In Hoedown!, players are
+measured for different qualities using [physical sensors](LINK).  These
+measurements are then used to determine a character class for the player, which
+is presented to them in the form of a character sheet printed on a
+[BERG Little Printer](LINK).  Players then find other players from each of the
+seven character classes, with whom they complete small shared tasks.
+
+The source code for Hoedown! is available [here](LINK).
+
+TODO: put source code up

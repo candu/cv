@@ -1,0 +1,29 @@
+---
+title: ponder Contract Developer
+from: Sep 5, 2013
+to: present
+org: Intel Labs
+tags: [Personal Data, JavaScript, Java, Web Development]
+location: Santa Clara, CA, USA
+---
+
+*Ponder is data analysis for the rest of us.  You can look for patterns,
+answer tough questions, or discover habits you didn’t even know you had.
+You don’t need a stats degree to do it.*
+
+[ponder](LINK) has much the same goal as [datafist](LINK): to enable all
+self-trackers to get more value from their personal data, regardless of
+experience with statistics or programming.  
+
+ponder uses [Spring MVC](LINK) as the web application framework, [Thrift](LINK)
+for communication with the API syncing service, [d3](LINK) for visualizations,
+[jQuery](LINK) and [bootstrap](LINK) for UI.  By far the largest challenge has
+been working with third-party APIs, which have quite divergent opinions on how
+to deal with time, data formatting, pagination, etc.
+
+This project draws heavily on ethnographic research and visual/interaction
+design from the team at [Intel Labs](LINK).  I've slowly come to accept that,
+even in software engineering, many of the hardest problems are not
+engineering problems - and so it is with this project.  Without the dedicated
+work of [Dawn Nafus](LINK), [Pete Denman](LINK), [Lama Nachman](LINK), and
+several others, this project would never have come to fruition.
