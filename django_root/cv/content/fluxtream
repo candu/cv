@@ -7,10 +7,9 @@ tags: [Personal Data, JavaScript, Open-Source, Web Development]
 location: Berkeley, CA, USA
 ---
 
-I [contributed briefly](LINK) to Fluxtream, a toolkit for gathering and viewing
+I contributed briefly to [Fluxtream](https://fluxtream.org/welcome), a toolkit for gathering and viewing
 your personal data.  My main contribution was to clean up the
-[Backbone](LINK) and [jQuery](LINK) code that managed the time pan/zoom
+[Backbone](http://backbonejs.org/) and [jQuery](http://jquery.com/) code that managed the time pan/zoom
 controls, fixing several bugs in the process.
 
-In a broader sense, this work foreshadowed [datafist](LINK) and my
-[current project with Intel Labs](LINK).
+In a broader sense, this work foreshadowed [datafist](http://datafist.savageevan.com/) and ponder.
