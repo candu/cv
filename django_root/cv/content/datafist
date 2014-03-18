@@ -7,19 +7,20 @@ tags: [Personal Data, JavaScript, Open-Source, Web Development]
 location: Berkeley, CA, USA
 ---
 
-[datafist](LINK) is an in-browser toolkit for visually exploring your personal
-data.   Similar to [Max/MSP](LINK) or [PureData](LINK), datafist offers a
-[visual programming](LINK) interface built around a toolkit of
+[datafist](https://github.com/candu/datafist) is an *in-browser toolkit for visually exploring your personal
+data.*   Similar to [Max](https://www.youtube.com/watch?v=BSA9fYLqDCU) or [PureData](http://puredata.info/), datafist offers a
+[visual programming](https://en.wikipedia.org/wiki/Visual_programming_language) interface built around a toolkit of
 simple, composable operations.  As you play around with these operations, the
 result is simultaneously visualized.  The goal was to create a simple open-source
-tool that less technically-inclined self-trackers could use to get more out of
-their personal data.
+tool to help all self-trackers get more out of their personal data, regardless
+of experience with programming or statistics.
 
-Everything is client-side HTML5 and JavaScript (including the favicon!).  There
+Everything is *HTML5 and JavaScript* (including the [favicon](https://en.wikipedia.org/wiki/Data_URI_scheme)!).  There
 is no backend; just clone the repo and go!  It can handle files of up to
-~20-25K data points.  Visualizations are built on top of [d3](LINK), with
-[mootools](LINK) as a generic JavaScript library for everything else.  It makes
-use of HTML5 [drag-and-drop](LINK) and [File API](LINK).
+~20K data points quite easily.  Visualizations are built on top of [d3](http://d3js.org/), with
+[mootools](http://mootools.net/) as the base JavaScript library.  It makes use of
+HTML5 [drag-and-drop](https://developer.mozilla.org/en-US/docs/DragDrop/Drag_and_Drop) and [FileReader](https://developer.mozilla.org/en-US/docs/Web/API/FileReader) APIs.
 
-You can see a screencast of it in action [here](LINK), or play around with a
-live version [here](LINK).  It currently requires Google Chrome.
+You can [watch a demo video](https://www.youtube.com/watch?v=ypitHPXKa8M), play around with a
+[live version](http://datafist.savageevan.com/), or [read my blog post](http://blog.savageevan.com/blog/2012/12/21/datafist-exploration-and-analysis/) about datafist.
+datafist currently requires Google Chrome.
