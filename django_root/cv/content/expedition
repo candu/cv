@@ -7,19 +7,20 @@ tags: [JavaScript, node.js, C++, Python, bash, Web Development, Education]
 location: Berkeley, CA, USA
 ---
 
-[expedition!](LINK) is a *quest-based learning game*, where the quests are
-knowledge-gathering tasks at specific locations.  [Valkyrie Savage] and I built
-a [functioning alpha-stage prototype](LINK) (TODO: bring this back up).
+[expedition!](https://expedition.savageinter.net/) is a *quest-based learning game*, where the quests are
+knowledge-gathering tasks at specific locations.  [Valkyrie Savage](http://valkyriesavage.com/) and I built
+a [functioning alpha-stage prototype](https://expedition.savageinter.net/) (TODO: bring this back up).
 Some examples of quests from our early players:
 
 (TODO: list of quests)
 
-The game is built using [node.js](LINK), [PostgreSQL](LINK) with
-[PostGIS](LINK), [redis](LINK), [OpenStreetMap](LINK), [bootstrap](LINK),
-and [jQuery](LINK).  Our node.js stack uses [fibrous](LINK) to manage
+The game is built using [node.js](http://nodejs.org/), [PostgreSQL](http://www.postgresql.org/) with
+[PostGIS](http://postgis.net/), [redis](http://redis.io/), [OpenStreetMap](http://www.openstreetmap.org/), [bootstrap](http://getbootstrap.com/),
+and [jQuery](http://jquery.com/).  Our node.js stack uses [fibrous](https://github.com/goodeggs/fibrous) to manage
 callbacks, offering a coroutine-based style of control flow that will be
-familiar to anyone who has used [Python generators](LINK).
+familiar to anyone who has used [Python generators](https://wiki.python.org/moin/Generators).
 
-In the process, I also built [node-int64-native](LINK), a *native extension
+In the process, I also built `int64-native`, a *native extension
 to node.js* that offers an idiomatic JavaScript wrapper around `uint64_t`
 values.  This is primarily useful when dealing with 64-bit IDs in databases.
+`int64-native` is available on [npm](https://www.npmjs.org/package/int64-native) and [github](https://github.com/candu/node-int64-native)
