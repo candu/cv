@@ -7,23 +7,20 @@ tags: [Personal Data, JavaScript, Java, Web Development]
 location: Santa Clara, CA, USA
 ---
 
-*Ponder is data analysis for the rest of us.  You can look for patterns,
-answer tough questions, or discover habits you didn’t even know you had.
-You don’t need a stats degree to do it.*
-
-[ponder](LINK) has much the same goal as [datafist](LINK): to enable all
+ponder has much the same goal as [datafist](http://datafist.savageevan.com/): to enable all
 self-trackers to get more value from their personal data, regardless of
-experience with statistics or programming.  
+experience with statistics or programming.  It is currently in development; this
+CV will be updated with a link when it goes live.
 
-ponder uses [Spring MVC](LINK) as the web application framework, [Thrift](LINK)
-for communication with the API syncing service, [d3](LINK) for visualizations,
-[jQuery](LINK) and [bootstrap](LINK) for UI.  By far the largest challenge has
+ponder uses [Spring MVC](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) as the web application framework, [Thrift](https://thrift.apache.org/)
+for communication with the API syncing service, [d3](http://d3js.org/) for visualizations,
+[jQuery](http://jquery.com/) and [bootstrap](http://getbootstrap.com/) for UI.  By far the largest challenge has
 been working with third-party APIs, which have quite divergent opinions on how
 to deal with time, data formatting, pagination, etc.
 
 This project draws heavily on ethnographic research and visual/interaction
-design from the team at [Intel Labs](LINK).  I've slowly come to accept that,
+design from the team at [Intel Labs](https://www-ssl.intel.com/content/www/us/en/research/intel-research.html).  I've slowly come to accept that,
 even in software engineering, many of the hardest problems are not
 engineering problems - and so it is with this project.  Without the dedicated
-work of [Dawn Nafus](LINK), [Pete Denman](LINK), [Lama Nachman](LINK), and
-several others, this project would never have come to fruition.
+work of [Dawn Nafus](http://dawnnafus.wordpress.com/), [Pete Denman](http://quantifiedself.com/2013/07/peter-denman-on-visualizing-data-with-biomimicry/), [Lama Nachman](https://www.youtube.com/watch?v=fi7HeDsPBHg), and
+several others, this project would not exist.
