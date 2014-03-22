@@ -54,8 +54,9 @@ class :ui:banner(:x:element):
     <div class="UIMission segment">
       <div class="title">Mission</div>
       <div class="description">
-        To{' '}<em>solve problems</em>,{' '}<em>crunch data</em>,
-        and{' '}<em>build systems</em>{' '}that impact real people.
+        <div>Do things that matter.</div>
+        <div>Learn, think, and teach constantly.</div>
+        <div>Enjoy the process.</div>
       </div>
     </div>
 
