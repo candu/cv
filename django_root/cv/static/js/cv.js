@@ -51,7 +51,7 @@ var ContentManager = new Class({
     var path = document.location.pathname;
     var path_tags = path.substr(1).split('/');
     for (var i = 0; i < path_tags.length; i++) {
-      var name = path_tags[i];
+      var name = decodeURI(path_tags[i]);
       var tag = this.getTagByName(name);
       if (tag == null) {
         continue;
@@ -175,7 +175,7 @@ var ContentManager = new Class({
         'selected').removeEvents(
         'click').addEvent('click', function(event) {
       this.selectTag(tag);
-      }.bind(this));  
+      }.bind(this));
     this.moveContentToBottom();
   },
   pushState : function(new_tags) {

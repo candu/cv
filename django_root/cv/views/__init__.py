@@ -22,15 +22,18 @@ def index(request, tag_spec):
     ('technical', (
       'Algorithms',
       'Distributed Systems',
+      'Education',
       'Hardware',
       'Mathematics',
       'Machine Learning',
+      'Personal Data',
       'Real-Time Computing',
       'Open-Source',
       'Web Development'
     )),
     ('personal', (
       'Awards',
+      'Cooking',
       'Fitness',
       'Music',
       'Speaking',
