@@ -9,18 +9,20 @@ location: Berkeley, CA, USA
 
 [expedition!](https://expedition.savageinter.net/) is a *quest-based learning game*, where the quests are
 knowledge-gathering tasks at specific locations.  [Valkyrie Savage](http://valkyriesavage.com/) and I built
-a [functioning alpha-stage prototype](https://expedition.savageinter.net/) (TODO: bring this back up).
+a [functioning prototype](https://expedition.savageinter.net/), which is currently in invite-only mode.
 Some examples of quests from our early players:
 
-(TODO: list of quests)
+- [Visit the bat pagoda in Soc Trang province, Vietnam](https://expedition.savageinter.net/quests/19)
+- [find the origin of the name Ypsilanti](https://expedition.savageinter.net/quests/13)
+- [Join E Clampus Vitus](https://expedition.savageinter.net/quests/9)
+- [Check out the Fishing Pier at Berkeley Marina](https://expedition.savageinter.net/quests/7)
 
-The game is built using [node.js](http://nodejs.org/), [PostgreSQL](http://www.postgresql.org/) with
+expedition! uses [node.js](http://nodejs.org/), [PostgreSQL](http://www.postgresql.org/) with
 [PostGIS](http://postgis.net/), [redis](http://redis.io/), [OpenStreetMap](http://www.openstreetmap.org/), [bootstrap](http://getbootstrap.com/),
-and [jQuery](http://jquery.com/).  Our node.js stack uses [fibrous](https://github.com/goodeggs/fibrous) to manage
-callbacks, offering a coroutine-based style of control flow that will be
-familiar to anyone who has used [Python generators](https://wiki.python.org/moin/Generators).
+and [jQuery](http://jquery.com/).  We sidestep [callback hell](http://callbackhell.com/) by using [fibrous](https://github.com/goodeggs/fibrous)
+which offers a `yield` syntax similar to [Python generators](https://wiki.python.org/moin/Generators).
 
 In the process, I also built `int64-native`, a *native extension
 to node.js* that offers an idiomatic JavaScript wrapper around `uint64_t`
-values.  This is primarily useful when dealing with 64-bit IDs in databases.
-`int64-native` is available on [npm](https://www.npmjs.org/package/int64-native) and [github](https://github.com/candu/node-int64-native)
+values.  `int64-native` is available on [npm](https://www.npmjs.org/package/int64-native) and
+[github](https://github.com/candu/node-int64-native)
